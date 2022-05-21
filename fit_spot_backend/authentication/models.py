@@ -6,11 +6,11 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=200)
-    city = models.CharField(_max_length=50)
+    city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
     zip_code = models.CharField( max_length=5)
     weight = models.CharField(max_length=4)
-    age = models.CharField(_(""), max_length=50)
+    age = models.CharField( max_length=3)
     '''
     This is a custom version of the built in User class
     It contains all of the built in fields and functionality of the standard User
