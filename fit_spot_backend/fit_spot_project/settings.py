@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'corsheaders',
     'weight_tracker',
+    'weather_app',
 ]
 
 MIDDLEWARE = [
