@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'weight_tracker',
     'weather_app',
+    'parks_gyms',
+    'workouts',
+    'djangoratings',
 ]
 
 MIDDLEWARE = [
