@@ -6,6 +6,12 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import About from "./pages/About/About"
+import Exercise from "./pages/Exercise/Exercsie"
+import GymsParks from "./pages/GymsParks/GymsParks"
+import Weather from "./pages/Weather/Weather"
+import WeightTracker from "./pages/WeightTracker/WeightTracker"
+
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
