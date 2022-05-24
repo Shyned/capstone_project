@@ -19,6 +19,7 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import GynParks from "./pages/GymsParks/GymsParks";
 
 function App() {
   return (
@@ -31,10 +32,17 @@ function App() {
             <PrivateRoute>
               <HomePage />
             </PrivateRoute>
+
           }
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/weather" element={<PrivateRoute><Weather /></PrivateRoute>} />
+        <Route path="/exercise" element={<PrivateRoute><Exercise /></PrivateRoute>} />
+        <Route path="/weight" element={<PrivateRoute><WeightTracker /></PrivateRoute>} />
+        <Route path="/gymsparks" element={<PrivateRoute><GynParks /></PrivateRoute>} />
+
       </Routes>
       <Footer />
     </div>
