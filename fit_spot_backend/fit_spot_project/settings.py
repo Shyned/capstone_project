@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'weather_app',
     'parks_gyms',
     'workouts',
-    'djangoratings',
+    
 ]
 
 MIDDLEWARE = [
