@@ -19,7 +19,7 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import GynParks from "./pages/GymsParks/GymsParks";
+
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route
-          path="/"
+          path="/Homepage"
           element={
             <PrivateRoute>
               <HomePage />
@@ -40,8 +40,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/weather" element={<PrivateRoute><Weather /></PrivateRoute>} />
         <Route path="/exercise" element={<PrivateRoute><Exercise /></PrivateRoute>} />
-        <Route path="/weight" element={<PrivateRoute><WeightTracker /></PrivateRoute>} />
-        <Route path="/gymsparks" element={<PrivateRoute><GynParks /></PrivateRoute>} />
+        <Route path="/weighttracker" element={<PrivateRoute><WeightTracker /></PrivateRoute>} />
+        <Route path="/gymsparks" element={<PrivateRoute><GymsParks /></PrivateRoute>} />
 
       </Routes>
       <Footer />

@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-
+import "./GymsParks.css"
 import axios from "axios";
 
-const GynParks  = () => {
+const GymsParks  = () => {
 
 
 
@@ -27,4 +27,4 @@ const GynParks  = () => {
     }
     
     
-    export default GynParks;
+    export default GymsParks;
