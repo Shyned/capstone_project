@@ -1,43 +1,45 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import "./HomePage.css"
-
-import axios from "axios";
+import "./HomePage.css";
+import homebg from "../../videos/homebg.mp4";
 
 const HomePage = () => {
-  // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
-  // The "token" value is the JWT token that you will send in the header of any request requiring authentication
-  //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
-  const [cars, setCars] = useState([]);
+  const [quote, setQuote] = useState([]);
+  const axios = require("axios");
 
   useEffect(() => {
-    const fetchCars = async () => {
-      try {
-        let response = await axios.get("http://127.0.0.1:8000/api/cars/", {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        });
-        setCars(response.data);
-      } catch (error) {
-        console.log(error.response.data);
-      }
+    const options = {
+      method: "GET",
+      url: "https://bodybuilding-quotes1.p.rapidapi.com/random-quote",
+      headers: {
+        "X-RapidAPI-Host": "bodybuilding-quotes1.p.rapidapi.com",
+        "X-RapidAPI-Key": "4caf133187msh2140ca04eeec8dfp133b01jsn478ed078f54d",
+      },
     };
-    fetchCars();
-  }, [token]);
+
+    axios
+      .request(options)
+      .then(function (response) {
+        setQuote(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
+
   return (
-    <div className="container">
-      <h1>Home Page for {user.username}!</h1>
-      {cars &&
-        cars.map((car) => (
-          <p key={car.id}>
-            {car.year} {car.model} {car.make}
-          </p>
-        ))}
-    </div>
+    <section>
+      <video autoPlay loop muted className="bg-video">
+        <source src={homebg} type="video/mp4" />
+      </video>
+      <h1>Welcome {user.username}</h1>{" "}
+      <div className="inspire-area">
+        <h2>{quote.author}</h2>
+        <h2>{quote.quote}</h2>
+      </div>
+    </section>
   );
 };
-
 export default HomePage;
