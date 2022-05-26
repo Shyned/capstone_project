@@ -1,1 +1,26 @@
+.navbar {
+  width: 20%;
+  right: -88%;
+  display: flex;
+  background-color: #9a8c98;
+}
 
+link:hover {
+  filter: brightness(2);
+}
+
+link {
+  color: #f2e9e4;
+  text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+link:active {
+  color: #f2e9e4;
+}

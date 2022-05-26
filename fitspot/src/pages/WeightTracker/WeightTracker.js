@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./WeightTracker.css";
 import axios from "axios";
+import CalculateBmi from "../../components/calculate_bmi/calculate_bmi";
+import GraphWeight from "../../components/GraphWeight/GraphWeight";
 // line chart
 const WeightTracker = () => {
   const [user, token] = useAuth();
   const [customerInfo, setCustomerInfo] = useState([]);
-  const [bmi, setBmi] = useState([]);
 
   useEffect(() => {
     const getUser = async () => {
@@ -26,25 +27,14 @@ const WeightTracker = () => {
       }
     };
     getUser();
-  }, [user]);
-  console.log(customerInfo);
+  }, []);
 
-  // user bmi
-  // useEffect(() => {
-  //   const userBmi =
-  //     (customerInfo.current_weight * 703) /
-  //     (customerInfo.height * customerInfo.height);
-  //   setBmi(userBmi);
-  // }, [user]);
-  //
   return (
     <section>
       <h3>{user.username}'s Weight Journey</h3>
-      <p>Weight Goal</p>
-      <p>{customerInfo.weight_goal}</p>
-      <p>BMI</p>
-      <p>{}</p>
-
+      <b>BMI</b>
+      {customerInfo.length > 0 && <CalculateBmi weight={customerInfo} />}
+      {customerInfo.length > 0 && <GraphWeight weight={customerInfo} />}
       <div className="postweight-card">
         <p className="weight-title">Weight Goals</p>
         <input></input>

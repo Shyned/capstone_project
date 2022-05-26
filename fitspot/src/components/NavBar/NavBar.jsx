@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
-
+import { useEffect, useState } from "react";
 // import pages
 import "./NavBar.css";
 // import About from "../../pages/About/About";
@@ -15,38 +15,22 @@ import "./NavBar.css";
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
   return (
-    <nav className="navbar navbar-light bg-dark">
+    <nav className="navbar navbar-light">
       <ul>
-        <li className="brand">
+        <li className="li">
           <Link to="/">
             <b>Home</b>
           </Link>
-        </li>
-        <li className="brand">
-          <Link to="/About">
-            <b>About</b>
-          </Link>
-        </li>
-        <li className="brand">
-          <Link to="/Weather">
-            <b>Weather</b>
-          </Link>
-        </li>
-        <li className="brand">
-          <Link to="/Exercise">
-            <b>Exercise</b>
-          </Link>
-        </li>
-        <li className="brand">
-          <Link to="/GymsParks">
-            <b>Gyms/Parks</b>
-          </Link>
-        </li>
-        <li className="brand">
-          <Link to="WeightTracker">
-            <b>Weight tracker</b>
-          </Link>
+          <a
+            href="#"
+            className="drop-down-button"
+            onClick={() => setOpen(!open)}
+          >
+            dropdown
+          </a>
         </li>
         <li>
           {user ? (

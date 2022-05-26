@@ -3,8 +3,24 @@
   z-index: -1;
   width: 100%;
   left: 50%;
-  height: 100%;
+  height: 160%;
   object-fit: cover;
   transform: translate(-50%, -50%);
-  margin-top: 20%;
+  margin-top: 15%;
+}
+.quote {
+  color: #f2e9e4;
+  opacity: 100%;
+  font-size: 40px;
+  padding: 10px 10px 10px 10px;
+  font-family: "Source Code Pro", monospace;
+}
+
+.inspire-area {
+  background-color: #9a8c98;
+  opacity: 100%;
+  width: 25%;
+
+  border-radius: 30px;
+  margin-left: 10%;
 }

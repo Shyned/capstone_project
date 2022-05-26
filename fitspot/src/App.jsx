@@ -1,7 +1,7 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-
+import React from "react";
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -18,13 +18,30 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import useAuth from "../src/hooks/useAuth";
+import useAuth from "./hooks/useAuth";
 
 function App() {
   const [user, token] = useAuth();
   return (
     <div>
-      <Navbar />
+      <Navbar>
+        <link to="/about">
+          <b>About</b>
+        </link>
+
+        <link to="/exercise">
+          <b>Exercise</b>
+        </link>
+        <link to="/weather">
+          <b>Weather</b>
+        </link>
+        <link to="/gymsparks">
+          <b>Gyms/Parks</b>
+        </link>
+        <link to="/weighttracker">
+          <b>WeightTracker</b>
+        </link>
+      </Navbar>
       <Routes>
         <Route
           path="/"

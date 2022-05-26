@@ -10,13 +10,17 @@ const HomePage = () => {
   const axios = require("axios");
 
   useEffect(() => {
+    const axios = require("axios");
+
     const options = {
-      method: "GET",
-      url: "https://bodybuilding-quotes1.p.rapidapi.com/random-quote",
+      method: "POST",
+      url: "https://motivational-quotes1.p.rapidapi.com/motivation",
       headers: {
-        "X-RapidAPI-Host": "bodybuilding-quotes1.p.rapidapi.com",
+        "content-type": "application/json",
+        "X-RapidAPI-Host": "motivational-quotes1.p.rapidapi.com",
         "X-RapidAPI-Key": "4caf133187msh2140ca04eeec8dfp133b01jsn478ed078f54d",
       },
+      data: '{"key1":"value","key2":"value"}',
     };
 
     axios
@@ -27,17 +31,16 @@ const HomePage = () => {
       .catch(function (error) {
         console.error(error);
       });
-  }, []);
-
+  }, [user]);
+  console.log(quote);
   return (
     <section>
       <video autoPlay loop muted className="bg-video">
         <source src={homebg} type="video/mp4" />
       </video>
-      <h1>Welcome {user.username}</h1>{" "}
+      <h1 className="user-name">Welcome {user.username}</h1>{" "}
       <div className="inspire-area">
-        <h2>{quote.author}</h2>
-        <h2>{quote.quote}</h2>
+        <h2 className="quote">{quote}</h2>
       </div>
     </section>
   );
