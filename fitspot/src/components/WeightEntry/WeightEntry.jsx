@@ -2,28 +2,53 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import "./WeightEntry.css";
 
-const WeightEntry = () => {
+const WeightEntry = (props) => {
   const [user, token] = useAuth();
   const [weight, setweight] = useState([]);
   const [weigthGoal, setWeightGoal] = useState([]);
   const [height, setHeight] = useState([]);
+  const [birthday, setBirthday] = useState([]);
+  const [postedweight, setPostedweight] = useState([]);
 
-  console.log(weight);
-  //   function handlesubmit(event) {
-  //     event.preventDefault();
-  //     let new_reply = {
-  //       'user': props.user.user,
-  //       'current_weight': weight,
-  //       'birthday':props.user.birthday,
-  //       'weight_goal': weigthGoal,
-  //       'height': height,
-  //     };
-  //     props.addReply(new_reply);
-  //     setText('');
-  //   }onSubmit={handlesubmit}
+  function handlesubmit(event) {
+    event.preventDefault();
+    let new_weight = {
+      user: props.user.user,
+      current_weight: weight,
+      birthday: props.user.birthday,
+      weight_goal: weigthGoal,
+      height: height,
+    };
+    const getUser = async () => {
+      try {
+        let response = await axios.post(
+          "http://127.0.0.1:8000/api/weighttracker/addweight/",
+          {
+            user: user.first_name,
+            current_weight: weight,
+            weight_goal: weigthGoal,
+            birthday: birthday,
+            height: height,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        console.log(response.data);
+        setPostedweight(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    };
+    getUser();
+  }
+
   return (
-    <form id="form">
+    <form id="form" onSubmit={handlesubmit}>
       <h3>Enter weight</h3>
       <div className="WT-label">
         <label>Weight</label>
@@ -41,6 +66,14 @@ const WeightEntry = () => {
           value={weigthGoal}
           placeholder="Enter Weight Goal (lbs) "
           onChange={(event) => setWeightGoal(event.target.value)}
+        />
+        <label>Birthday</label>
+        <input
+          type="text"
+          className="input-search"
+          value={birthday}
+          placeholder="yyyy-mm-dd"
+          onChange={(event) => setBirthday(event.target.value)}
         />
         <label>Height</label>
         <input

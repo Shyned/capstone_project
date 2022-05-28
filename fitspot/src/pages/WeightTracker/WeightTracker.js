@@ -31,7 +31,7 @@ const WeightTracker = () => {
     };
     getUser();
   }, []);
-  console.log(user);
+  console.log(customerInfo);
   return (
     <section>
       <h3>{user.first_name}'s</h3>

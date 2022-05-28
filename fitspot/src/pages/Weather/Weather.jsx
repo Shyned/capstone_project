@@ -36,8 +36,7 @@ const Weather = () => {
   // // display
   return (
     <section className="weather-page">
-      <h1>Hello</h1>
-      {customerInfo.length > 0 && <UserWeather user={customerInfo} />}
+      {/* {customerInfo.length > 0 && <UserWeather user={customerInfo} />} */}
     </section>
   );
 };

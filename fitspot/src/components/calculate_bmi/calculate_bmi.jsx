@@ -32,7 +32,7 @@ const CalculateBmi = (props) => {
   //       console.error(error);
   //     });
   // }, []);
-  console.log(myBmi);
+
   return (
     <section>
       <h3>BMI</h3>
