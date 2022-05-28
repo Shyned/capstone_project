@@ -1,26 +1,64 @@
 .navbar {
-  width: 20%;
-  right: -88%;
+  width: 30%;
+  right: -69%;
   display: flex;
   background-color: #9a8c98;
-}
-
-link:hover {
-  filter: brightness(2);
-}
-
-link {
-  color: #f2e9e4;
-  text-decoration: none;
+  border-radius: 10px;
+  top: 5rem;
+  position: fixed;
+  padding: 10px;
 }
 a {
+  color: #9a8c98;
+  text-decoration: none;
+  margin-bottom: 2%;
+  text-decoration: none;
+  font-weight: 700;
+}
+a:hover {
+  filter: brightness(4);
+}
+
+a:visited {
   text-decoration: none;
 }
 
-ul {
-  list-style: none;
-}
-
-link:active {
+.sign-btn {
+  margin-top: 3%;
+  border: 2px solid gray;
+  border-radius: 20%;
+  background-color: #22223b;
+  box-shadow: 10px 20px 30px rgb(77, 77, 77);
   color: #f2e9e4;
+  width: 20%;
+  animation: bouncy 5s infinite linear;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+@keyframes bouncy {
+  0% {
+    top: 0em;
+  }
+  40% {
+    top: 0em;
+  }
+  43% {
+    top: -0.9em;
+  }
+  46% {
+    top: 0em;
+  }
+  48% {
+    top: -0.4em;
+  }
+  50% {
+    top: 0em;
+  }
+  100% {
+    top: 0em;
+  }
+}
+.sign-btn:hover {
+  filter: brightness(1.4);
 }

@@ -1,3 +1,32 @@
 .error {
   color: red;
 }
+
+.container {
+  background-color: bisque;
+  width: 220px;
+  height: 800px;
+  border-radius: 20%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 10% 10% 10% 10%;
+}
+
+.label-login {
+  font-family: "Tiro Tamil", serif;
+  font-weight: bolder;
+  margin-bottom: 3%;
+  margin-left: auto;
+  margin-right: auto;
+  color: navy;
+}
+
+button {
+  width: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: blue;
+}

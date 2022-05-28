@@ -23,25 +23,9 @@ import useAuth from "./hooks/useAuth";
 function App() {
   const [user, token] = useAuth();
   return (
-    <div>
-      <Navbar>
-        <link to="/about">
-          <b>About</b>
-        </link>
+    <div className="app">
+      <Navbar />
 
-        <link to="/exercise">
-          <b>Exercise</b>
-        </link>
-        <link to="/weather">
-          <b>Weather</b>
-        </link>
-        <link to="/gymsparks">
-          <b>Gyms/Parks</b>
-        </link>
-        <link to="/weighttracker">
-          <b>WeightTracker</b>
-        </link>
-      </Navbar>
       <Routes>
         <Route
           path="/"

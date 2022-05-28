@@ -1,10 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+// style
 import "./WeightTracker.css";
 import axios from "axios";
 import CalculateBmi from "../../components/calculate_bmi/calculate_bmi";
-import GraphWeight from "../../components/GraphWeight/GraphWeight";
+import WeightJourney from "../../components/WeigthJourney/WeigthJourney";
+import WeightEntry from "../../components/WeightEntry/WeightEntry";
+
 // line chart
 const WeightTracker = () => {
   const [user, token] = useAuth();
@@ -28,22 +31,13 @@ const WeightTracker = () => {
     };
     getUser();
   }, []);
-
+  console.log(user);
   return (
     <section>
-      <h3>{user.username}'s Weight Journey</h3>
-      <b>BMI</b>
+      <h3>{user.first_name}'s</h3>
       {customerInfo.length > 0 && <CalculateBmi weight={customerInfo} />}
-      {customerInfo.length > 0 && <GraphWeight weight={customerInfo} />}
-      <div className="postweight-card">
-        <p className="weight-title">Weight Goals</p>
-        <input></input>
-        <p className="weight-title">Weight</p>
-        <input></input>
-        <p className="weight-title">Height</p>
-        <input></input>
-        <button>SUBMIT</button>
-      </div>
+      {customerInfo.length > 0 && <WeightJourney weight={customerInfo} />}
+      {customerInfo.length > 0 && <WeightEntry user={customerInfo} />}
     </section>
   );
 };

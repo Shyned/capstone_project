@@ -3,7 +3,7 @@
   z-index: -1;
   width: 100%;
   left: 50%;
-  height: 160%;
+  height: 140%;
   object-fit: cover;
   transform: translate(-50%, -50%);
   margin-top: 15%;
@@ -23,4 +23,13 @@
 
   border-radius: 30px;
   margin-left: 10%;
+}
+
+.user-name {
+  color: #f2e9e4;
+  font-family: "Source Code Pro", monospace;
+  margin-left: 12%;
+  margin-bottom: 1em;
+  font-size: 50px;
+  font-weight: 800;
 }

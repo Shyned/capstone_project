@@ -19,27 +19,39 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-light">
-      <ul>
-        <li className="li">
-          <Link to="/">
-            <b>Home</b>
-          </Link>
-          <a
-            href="#"
-            className="drop-down-button"
-            onClick={() => setOpen(!open)}
-          >
-            dropdown
-          </a>
-        </li>
-        <li>
-          {user ? (
-            <button onClick={logoutUser}>Logout</button>
-          ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
-          )}
-        </li>
-      </ul>
+      <a className="li" href="http://localhost:3000/">
+        Home
+      </a>
+
+      <a className="li" href="http://localhost:3000/about">
+        About
+      </a>
+
+      <a className="li" href="http://localhost:3000/exercise">
+        My Exercise
+      </a>
+
+      <a className="li" href="http://localhost:3000/weighttracker">
+        Weight Tracker
+      </a>
+
+      <a className="li" href="http://localhost:3000/weather">
+        Weather
+      </a>
+
+      <a className="li" href="http://localhost:3000/gymsparks">
+        My Gyms/Parks
+      </a>
+
+      {user ? (
+        <button className="sign-btn" onClick={logoutUser}>
+          Logout
+        </button>
+      ) : (
+        <button className="sign-btn" onClick={() => navigate("/login")}>
+          Login
+        </button>
+      )}
     </nav>
   );
 };

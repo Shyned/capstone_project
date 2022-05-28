@@ -34,7 +34,7 @@ const HomePage = () => {
   }, [user]);
   console.log(quote);
   return (
-    <section>
+    <section className="home-page">
       <video autoPlay loop muted className="bg-video">
         <source src={homebg} type="video/mp4" />
       </video>
