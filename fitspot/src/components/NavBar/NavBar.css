@@ -1,12 +1,15 @@
 .navbar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
   width: 30%;
   right: -69%;
   display: flex;
-  background-color: #9a8c98;
+  background-color: #f2e9e4;
   border-radius: 10px;
   top: 5rem;
-  position: fixed;
   padding: 10px;
+  box-shadow: 10px 10px 30px rgb(46, 46, 46);
+  z-index: 100;
 }
 a {
   color: #9a8c98;
@@ -26,9 +29,8 @@ a:visited {
 .sign-btn {
   margin-top: 3%;
   border: 2px solid gray;
-  border-radius: 20%;
-  background-color: #22223b;
-  box-shadow: 10px 20px 30px rgb(77, 77, 77);
+  border-radius: 5%;
+  background-color: #686892;
   color: #f2e9e4;
   width: 20%;
   animation: bouncy 5s infinite linear;

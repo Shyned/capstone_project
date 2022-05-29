@@ -1,0 +1,28 @@
+.gptitle-section {
+  background-color: #22223b;
+  gap: 10px;
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  width: 30%;
+  margin-left: 20%;
+  height: 9em;
+  padding-top: 2.5%;
+  border-radius: 30px;
+  padding-left: 4.5%;
+}
+
+.gp {
+  border-radius: 0%;
+  border: none;
+}
+
+.colorbox {
+  display: flex;
+  background-color: #4a4e69;
+  height: 4em;
+  width: 80%;
+  border-radius: 20px;
+  color: #f2e9e4;
+  padding-left: 20px;
+  padding-right: 20px;
+}

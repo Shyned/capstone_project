@@ -7,3 +7,19 @@ footer {
   text-align: center;
   width: 100%;
 }
+
+.footer-info {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  gap: 40px;
+}
+.img {
+  border: none;
+  padding-top: 30px;
+}
+p {
+  padding-top: 30px;
+  color: rgb(245, 143, 11);
+}

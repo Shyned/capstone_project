@@ -36,6 +36,15 @@ const Weather = () => {
   // // display
   return (
     <section className="weather-page">
+      <div className=" title-section">
+        <h2 className="nop">
+          <img
+            className="letter"
+            src="https://img.icons8.com/clouds/100/fa314a/wrauter.png"
+          />
+          eather
+        </h2>
+      </div>
       {/* {customerInfo.length > 0 && <UserWeather user={customerInfo} />} */}
     </section>
   );

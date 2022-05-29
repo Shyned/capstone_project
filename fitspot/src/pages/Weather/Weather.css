@@ -1,5 +1,29 @@
 .weather-page {
-  background: #4a4e69;
-  height: 1080px;
+  background: rgb(255, 255, 255);
+  height: 1180px;
   width: 100%;
+}
+.nop {
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  color: rgb(255, 175, 54);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 60px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.title-section {
+  background-color: rgb(33, 155, 249);
+  display: flex;
+  width: 60%;
+  border-radius: 20px;
+}
+
+.letter:hover {
+  transform: scale(1.4);
+  transition-delay: 200ms;
 }

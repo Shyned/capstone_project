@@ -1,0 +1,71 @@
+.exercise-title {
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  display: flex;
+  width: 500px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: aqua;
+  margin-bottom: 2em;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.exerpic {
+  border: none;
+  border-radius: 0;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate__bounce {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 4s;
+  animation-duration: 4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.masker {
+  border: none;
+  border-radius: 0;
+}
+
+.maskvid {
+  width: 60%;
+  height: 60%;
+  clip-path: polygon(40% 0, 80% 0, 55% 100%, 14% 100%);
+}
+.masker {
+  transform: rotate(60deg);
+  position: absolute;
+  left: 14em;
+  top: 8em;
+  fill: white;
+}
+
+.exer-page {
+  background-color: antiquewhite;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}

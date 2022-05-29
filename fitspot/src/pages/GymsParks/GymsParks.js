@@ -31,7 +31,18 @@ const GymsParks = () => {
   // console.log(customerInfo);
   http: return (
     <section>
-      <h1>Dyshine Hill</h1>
+      <div className="gptitle-section">
+        <div className="colorbox">
+          <h2>Gyms</h2>
+          <img
+            className="gp ampersand"
+            src="https://img.icons8.com/stickers/50/000000/ampersand.png"
+          />
+          <h2>Parks</h2>
+        </div>
+      </div>
+      <p className="gympic"></p>
+
       <FindGymsParks />
     </section>
   );
