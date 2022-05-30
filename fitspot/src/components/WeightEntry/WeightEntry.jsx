@@ -11,7 +11,7 @@ const WeightEntry = (props) => {
   const [height, setHeight] = useState([]);
   const [birthday, setBirthday] = useState([]);
   const [postedweight, setPostedweight] = useState([]);
-
+  console.log(birthday);
   function handlesubmit(event) {
     event.preventDefault();
     let new_weight = {
@@ -53,7 +53,7 @@ const WeightEntry = (props) => {
       <div className="WT-label">
         <label>Weight</label>
         <input
-          type="text"
+          type="number"
           className="input-search"
           value={weight}
           placeholder="Enter Weight (lbs)"
@@ -61,7 +61,7 @@ const WeightEntry = (props) => {
         />
         <label>Weight Goal</label>
         <input
-          type="text"
+          type="number"
           className="input-search"
           value={weigthGoal}
           placeholder="Enter Weight Goal (lbs) "
@@ -69,7 +69,7 @@ const WeightEntry = (props) => {
         />
         <label>Birthday</label>
         <input
-          type="text"
+          type="date"
           className="input-search"
           value={birthday}
           placeholder="yyyy-mm-dd"
@@ -77,7 +77,7 @@ const WeightEntry = (props) => {
         />
         <label>Height</label>
         <input
-          type="text"
+          type="number"
           className="input-search"
           value={height}
           placeholder="Enter Height (inches)"

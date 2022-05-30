@@ -5,12 +5,6 @@ import AuthContext from "../../context/AuthContext";
 import { useEffect, useState } from "react";
 // import pages
 import "./NavBar.css";
-// import About from "../../pages/About/About";
-// import Exercise from "../../pages/Exercise/Exercsie"
-// import GymsParks from "../../pages/GymsParks/GymsParks"
-// import HomePage from "../../pages/HomePage/HomePage"
-// import Weather from "../../pages/Weather/Weather"
-// import WeightTracker from "../../pages/WeightTracker/WeightTracker"
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);

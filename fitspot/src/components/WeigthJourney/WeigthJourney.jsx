@@ -9,7 +9,7 @@ const WeightJourney = (props) => {
 
       {props.weight != undefined &&
         props.weight.map((el) => {
-          return <h5 key={el.id}>{el.current_weight}</h5>;
+          return <h5 key={el.id}>{el.current_weight} lbs</h5>;
         })}
     </div>
   );

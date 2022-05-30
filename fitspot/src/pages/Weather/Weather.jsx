@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import UserWeather from "../../components/UserWeather/Userweather";
 import "./Weather.css";
+import rain from "../../videos/rain.mp4";
 // import Wea
 
 const Weather = () => {
@@ -36,14 +37,20 @@ const Weather = () => {
   // // display
   return (
     <section className="weather-page">
+      <video autoPlay loop muted className="bg-video-weather">
+        <source src={rain} type="video/mp4" />
+      </video>
       <div className=" title-section">
         <h2 className="nop">
           <img
             className="letter"
-            src="https://img.icons8.com/clouds/100/fa314a/wrauter.png"
+            src="https://img.icons8.com/clouds/250/fa314a/wrauter.png"
           />
           eather
         </h2>
+      </div>
+      <div className="weather-body">
+        <h3>Hello</h3>
       </div>
       {/* {customerInfo.length > 0 && <UserWeather user={customerInfo} />} */}
     </section>
