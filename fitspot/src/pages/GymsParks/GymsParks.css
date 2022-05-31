@@ -26,3 +26,83 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+.gyms-parks-page {
+  position: absolute;
+
+  top: 0;
+  background: rgb(255, 255, 255);
+  height: 1980px;
+  width: 100%;
+  background-image: linear-gradient(
+      30deg,
+      #ffffff 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #ffffff 87.5%,
+      #ffffff
+    ),
+    linear-gradient(
+      150deg,
+      #ffffff 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #ffffff 87.5%,
+      #ffffff
+    ),
+    linear-gradient(
+      30deg,
+      #ffffff 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #ffffff 87.5%,
+      #ffffff
+    ),
+    linear-gradient(
+      150deg,
+      #ffffff 12%,
+      transparent 12.5%,
+      transparent 87%,
+      #ffffff 87.5%,
+      #ffffff
+    ),
+    linear-gradient(
+      60deg,
+      rgba(255, 255, 255, 0.5) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(255, 255, 255, 0.5) 75%,
+      rgba(255, 255, 255, 0.5)
+    ),
+    linear-gradient(
+      60deg,
+      rgba(255, 255, 255, 0.5) 25%,
+      transparent 25.5%,
+      transparent 75%,
+      rgba(255, 255, 255, 0.5) 75%,
+      rgba(255, 255, 255, 0.5)
+    );
+  background-size: 56px 98px;
+  background-position: 0 0, 0 0, 28px 49px, 28px 49px, 0 0, 28px 49px;
+  background-color: rgba(196, 242, 242, 0.76);
+}
+.gptitle-section {
+  position: absolute;
+  top: 5%;
+}
+
+.gymsparks-body {
+  background-color: aliceblue;
+  margin-top: 20%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  height: auto;
+}
+
+.page-img {
+  left: 30%;
+  position: absolute;
+  border: none;
+  border-radius: 0;
+}

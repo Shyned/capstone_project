@@ -30,7 +30,7 @@ const GymsParks = () => {
 
   // console.log(customerInfo);
   http: return (
-    <section>
+    <section className="gyms-parks-page">
       <div className="gptitle-section">
         <div className="colorbox">
           <h2>Gyms</h2>
@@ -41,9 +41,13 @@ const GymsParks = () => {
           <h2>Parks</h2>
         </div>
       </div>
-      <p className="gympic"></p>
-
-      <FindGymsParks />
+      <div className="gymsparks-body">
+        <FindGymsParks />
+      </div>
+      <img
+        className="page-img"
+        src="https://img.icons8.com/external-filled-outline-icons-maxicons/400/000000/external-circle-space-filled-outline-filled-outline-icons-maxicons.png"
+      />
     </section>
   );
 };

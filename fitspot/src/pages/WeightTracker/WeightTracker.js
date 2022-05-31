@@ -44,10 +44,20 @@ const WeightTracker = () => {
         </h2>
       </div>
       <div className="body-wt">
-        {customerInfo.length > 0 && <CalculateBmi weight={customerInfo} />}
-        {customerInfo.length > 0 && <WeightJourney weight={customerInfo} />}
+        <div className="topcard-section">
+          {customerInfo.length > 0 && <CalculateBmi weight={customerInfo} />}
+          {customerInfo.length > 0 && <WeightJourney weight={customerInfo} />}
+        </div>
         {customerInfo.length > 0 && <WeightEntry user={customerInfo} />}
       </div>
+      <img
+        className="apple-img"
+        src="https://img.icons8.com/plasticine/150/000000/healthy-eating.png"
+      />
+      <img
+        className="hotpepper-img"
+        src="https://img.icons8.com/plasticine/200/000000/chili-pepper.png"
+      />
     </section>
   );
 };

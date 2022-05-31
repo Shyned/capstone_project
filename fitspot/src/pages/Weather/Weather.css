@@ -80,14 +80,15 @@
   font-family: "Ultra", serif;
 }
 .weather-body {
-  background: rgba(8, 87, 246, 1);
+  background: rgb(227, 236, 255);
 
   position: absolute;
   border-radius: 20px;
   top: 20%;
   left: 8%;
   width: 85%;
-  height: 40em;
+  height: 100%;
+  border: #46c6a8 15px solid;
 }
 
 .bg-video-weather {
@@ -95,6 +96,6 @@
   top: 1em;
   left: 1em;
   width: 40%;
-  border: #0069fd 10px solid;
+  border: #46c6a8 10px solid;
   border-radius: 100%;
 }

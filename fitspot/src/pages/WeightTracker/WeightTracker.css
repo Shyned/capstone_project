@@ -4,9 +4,11 @@
   height: 300px;
 }
 .title {
+  color: rgb(253, 104, 58);
   font-family: "Tiro Tamil", serif;
   font-family: "Ultra", serif;
 }
+
 .weighttracker-page {
   position: absolute;
   top: 0;
@@ -83,10 +85,36 @@
 }
 
 .body-wt {
+  margin-bottom: 20%;
+  width: 80%;
   position: absolute;
   top: 20em;
-  left: 20%;
+  left: 18%;
   background-color: rgb(255, 243, 232);
   font-family: "Times New Roman", Times, serif;
-  border: dotted black 5px;
+  border: dotted grey 5px;
+}
+
+.apple-img {
+  position: absolute;
+  border: orangered 10px dotted;
+  left: 2%;
+  top: 3%;
+}
+.hotpepper-img {
+  position: absolute;
+  border: 10px rgb(255, 94, 0) dotted;
+
+  left: 1%;
+  top: 50%;
+}
+.topcard-section {
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.wj-title {
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  color: rgb(253, 104, 58);
 }

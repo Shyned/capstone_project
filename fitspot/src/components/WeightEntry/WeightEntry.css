@@ -1,6 +1,15 @@
-#form {
+#weight-entry-form {
+  margin-top: 3%;
   display: flex;
   flex-direction: column;
+  background-color: aqua;
+  width: 50%;
+  margin-left: 25%;
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  border: grey dotted 5px;
+  border-radius: 10px;
+  height: 300px;
 }
 
 input {

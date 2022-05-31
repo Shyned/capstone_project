@@ -1,0 +1,157 @@
+.top-section {
+  display: flex;
+  justify-content: space-between;
+}
+.middle-section {
+  display: flex;
+  margin-top: 3%;
+}
+.temp-section {
+  border: 10px #46c6a8 solid;
+  width: 50%;
+  margin-left: 3%;
+  margin-right: 3%;
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  border-radius: 20px;
+}
+.wind-chill-section {
+  border-radius: 20px;
+  border: 10px #46c6a8 solid;
+  width: 50%;
+  margin-right: 3%;
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+}
+
+.more-weather {
+  border-radius: 20px;
+  border: 10px #46c6a8 solid;
+  width: 50%;
+  margin-right: 3%;
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+}
+
+.humidity-section {
+  border-radius: 20px;
+  border: 10px #46c6a8 solid;
+  width: 50%;
+  margin-left: 3%;
+  margin-right: 3%;
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+}
+.weather-img {
+  border: none;
+  border-radius: 0;
+  margin-left: 2%;
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.weather-data {
+  font-size: 60px;
+
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  background-color: aliceblue;
+  padding-left: 40%;
+}
+.search-button {
+  margin-left: 1em;
+  border-top: 1px solid #339dde;
+  background: #c4a787;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#f09b08),
+    to(#c4a787)
+  );
+  background: -moz-linear-gradient(top, #f09b08, #c4a787);
+  padding: 8.5px 17px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.search-button:hover {
+  border-top-color: #f2f2f2;
+  background: #f2f2f2;
+  color: #ffa200;
+}
+
+.input-search {
+  height: 50px;
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+}
+.find-city {
+  background-color: aliceblue;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  border-radius: 20px;
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  border: 10px #46c6a8 solid;
+  height: 10em;
+  padding-left: 3%;
+}
+.weather-report {
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  color: #f09b08;
+  padding-left: 35%;
+  margin-bottom: 5%;
+  background-color: aliceblue;
+}
+.travel-data {
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  padding-left: 40%;
+}
+
+.travel-page {
+  margin-top: 3%;
+}
+.whole-weather-page {
+  padding-bottom: 20px;
+}

@@ -34,9 +34,21 @@ const CalculateBmi = (props) => {
   // }, []);
 
   return (
-    <section>
-      <h3>BMI</h3>
-      {myBmi != undefined && <h4> {myBmi.bmi}</h4>}
+    <section className="bmi-section">
+      <div className="bmi-header">
+        <h3 className="bmi-name">
+          BMI
+          <img
+            className="bmi-icon"
+            src="https://img.icons8.com/plasticine/50/000000/diamond-heart.png"
+          />
+        </h3>
+      </div>
+      {myBmi != undefined && (
+        <div className="result-section">
+          <h4 className="bmi-result"> {myBmi.bmi}</h4>
+        </div>
+      )}
     </section>
   );
 };

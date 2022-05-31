@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import "./Exercise.css";
 import exercisevid from "../../videos/exercisevid.mp4";
 import FindExercise from "../../components/FindExercise/FindExercise";
+import SavedWorkOuts from "../../components/SavedWorkOuts/SavedWorkOuts";
 
 import axios from "axios";
 
@@ -22,6 +23,7 @@ const Exercise = () => {
         ></source>
       </video>
       <FindExercise />
+      <SavedWorkOuts />
     </section>
   );
 };

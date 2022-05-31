@@ -1,0 +1,33 @@
+.bmi-section {
+  background-color: aqua;
+  width: 50%;
+  border: grey 5px dotted;
+  border-radius: 10px;
+  -webkit-box-shadow: 23.5px 14.5px 32px -22px #494949;
+  -moz-box-shadow: 23.5px 14.5px 32px -22px #494949;
+  box-shadow: 23.5px 14.5px 32px -22px #494949;
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.bmi-header {
+  background-color: aliceblue;
+  margin-top: 3%;
+}
+.bmi-icon {
+  border: none;
+  border-radius: 0;
+}
+.bmi-name {
+  color: rgb(253, 104, 58);
+  margin-left: 38%;
+}
+
+.result-section {
+  margin-top: 10%;
+  background-color: aliceblue;
+}
+.bmi-result {
+  margin-left: 15%;
+}

@@ -50,9 +50,8 @@ const Weather = () => {
         </h2>
       </div>
       <div className="weather-body">
-        <h3>Hello</h3>
+        {customerInfo.length > 0 && <UserWeather user={customerInfo} />}
       </div>
-      {/* {customerInfo.length > 0 && <UserWeather user={customerInfo} />} */}
     </section>
   );
 };

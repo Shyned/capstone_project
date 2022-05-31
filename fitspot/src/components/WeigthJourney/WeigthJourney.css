@@ -1,0 +1,23 @@
+.weights {
+  width: 50%;
+  background-color: aqua;
+  border-radius: 10px;
+  border: grey 5px dotted;
+  margin-right: 3%;
+}
+.pastweight {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: aliceblue;
+
+  height: 60px;
+  padding-left: 40%;
+  padding-top: 3%;
+}
+.wj-title {
+  font-size: 40px;
+  margin-left: 10%;
+}
+.weight-header {
+  margin-top: 3%;
+  background-color: aliceblue;
+}

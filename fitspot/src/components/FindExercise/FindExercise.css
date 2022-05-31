@@ -7,3 +7,26 @@
   font-size: 20px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
 }
+.find-exercise {
+  background-color: beige;
+  width: 40%;
+  height: 40%;
+  border-radius: 10px;
+  margin-left: 10%;
+}
+.display-result {
+  position: absolute;
+  margin-top: 10%;
+  width: 400px;
+  height: 100px;
+  border: gray solid 3px;
+  background-color: aliceblue;
+}
+
+.reps-section {
+  position: absolute;
+  background-color: aliceblue;
+  width: 50%;
+  height: 10%;
+  border: gray solid 3px;
+}

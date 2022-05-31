@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./FindExercise.css";
+import axios from "axios";
 
 const FindExercise = () => {
   const [bodyPart, setBodyPart] = useState([]);
@@ -9,6 +10,36 @@ const FindExercise = () => {
   const [bodyPartsSearch, setBodyPartsSearch] = useState([]);
   const [equipmentSearch, setequipmentSearch] = useState([]);
   const [hasItem, setHasItem] = useState(false);
+  const [user, token] = useAuth();
+  // saved post
+  const [pickedExercsie, setPickedExercise] = useState([]);
+  const [myReps, setMyReps] = useState([]);
+
+  function addWorkout(event) {
+    event.preventDefault();
+    const getUser = async () => {
+      try {
+        let response = await axios.post(
+          "http://127.0.0.1:8000/api/workouts/addworkout/",
+          {
+            user: user.first_name,
+            reps: myReps,
+            exercise_id: pickedExercsie,
+          },
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        console.log(response.data);
+        alert("Entry Added");
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    };
+    getUser();
+  }
 
   function SearchBody(event) {
     event.preventDefault();
@@ -40,16 +71,16 @@ const FindExercise = () => {
       const founditems = bodyPartsSearch.filter(
         (element) => element.equipment === equipment
       );
-      console.log(founditems);
+
       setequipmentSearch(founditems);
     }
-
+    setEquipment(" ");
     setHasItem(false);
   }, [hasItem]);
-
+  console.log(pickedExercsie);
   return (
-    <section>
-      <h1>Find exercise</h1>
+    <section className="find-exercise">
+      <h2>Find exercise</h2>
       <form onSubmit={SearchBody}>
         <label>Search Body Parts</label>
         <div>
@@ -92,25 +123,50 @@ const FindExercise = () => {
             <option>kettlebell</option>
             <option>leverage machine</option>
             <option>medicine ball</option>
-            <option></option>"olympic barbell",
-            <option></option>"resistance band",
-            <option></option>"roller",
-            <option></option>"rope",
-            <option></option>"skierg machine",
-            <option></option>"sled machine",
-            <option></option>"smith machine",
-            <option></option>"stability ball",
-            <option></option>"stationary bike",
-            <option></option>"stepmill machine",
-            <option></option>"tire",
-            <option></option>"trap bar",
-            <option></option>"upper body ergometer",
-            <option></option>"weighted",
-            <option></option>"wheel roller",
+            <option>olympic barbell</option>
+            <option>resistance band</option>
+            <option>roller</option>
+            <option>rope"</option>
+            <option>skierg machine</option>
+            <option>sled machine</option>
+            <option>smith machine</option>
+            <option>stability ball</option>
+            <option>stationary bike</option>
+            <option>stepmill machine</option>
+            <option>tire</option>
+            <option>trap bar</option>
+            <option>upper body ergometer</option>
+            <option>weighted</option>
+            <option>wheel roller</option>
           </select>
         </div>
         <button>Submit</button>
       </form>
+      {/*  */}
+      {equipmentSearch != undefined && (
+        <form className="display-result">
+          <label>Workouts</label>
+          <select
+            value={pickedExercsie}
+            onChange={(event) => setPickedExercise(event.target.value)}
+          >
+            {equipmentSearch.map((el) => (
+              <option value={el.name}>{el.name}</option>
+            ))}
+          </select>
+        </form>
+      )}
+      {/* reps */}
+      {pickedExercsie != [] && (
+        <form onSubmit={addWorkout} className="reps-section">
+          <label>Reps</label>
+          <input
+            onChange={(event) => setMyReps(event.target.value)}
+            type="number"
+          />
+          <button>Submit</button>
+        </form>
+      )}
     </section>
   );
 };
