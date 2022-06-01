@@ -26,15 +26,22 @@ const SavedWorkOuts = (props) => {
     };
     WorkoutLog();
   }, [token]);
-
+  console.log(workouts);
   return (
-    <section>
-      <h2>Workout Log</h2>
-      {workouts.length > 0 &&
+    <section className="Workout-log">
+      <h2 className="workout-box">Workout Log</h2>
+      {workouts != undefined &&
         workouts.map((el) => (
-          <p key={el.id}>
-            {el.exercise_id} {el.reps}
-          </p>
+          <div className="workouts">
+            <div className="items-work" key={el.id}>
+              <p className="workputs">Workout : {el.exercise_id}</p>
+              <p className="workputs">REPS : {el.reps}</p>
+            </div>
+            <img
+              className="checked-box"
+              src="https://img.icons8.com/cute-clipart/40/undefined/checked-checkbox.png"
+            />
+          </div>
         ))}
     </section>
   );

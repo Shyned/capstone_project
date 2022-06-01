@@ -1,9 +1,10 @@
 .weights {
   width: 50%;
-  background-color: aqua;
+  background-color: #eb2c1d;
   border-radius: 10px;
-  border: grey 5px dotted;
+  height: 20%;
   margin-right: 3%;
+  margin-top: 70px;
 }
 .pastweight {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -20,4 +21,12 @@
 .weight-header {
   margin-top: 3%;
   background-color: aliceblue;
+}
+
+.scale-icon {
+  border: none;
+  border-radius: 0;
+}
+.info-weights {
+  overflow: scroll;
 }

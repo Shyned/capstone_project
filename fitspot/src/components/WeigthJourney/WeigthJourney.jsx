@@ -9,15 +9,20 @@ const WeightJourney = (props) => {
       <div className="weight-header">
         <h1 className="wj-title">Weight Journey</h1>
       </div>
-
-      {props.weight != undefined &&
-        props.weight.map((el) => {
-          return (
-            <h5 className="pastweight" key={el.id}>
-              {el.current_weight} lbs
-            </h5>
-          );
-        })}
+      <div className="info-weights">
+        {props.weight != undefined &&
+          props.weight.map((el) => {
+            return (
+              <h5 className="pastweight" key={el.id}>
+                {el.current_weight} lbs{" "}
+                <img
+                  className="scale-icon"
+                  src="https://img.icons8.com/doodle/30/undefined/scale--v1.png"
+                />
+              </h5>
+            );
+          })}
+      </div>
     </div>
   );
 };

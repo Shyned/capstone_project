@@ -1,8 +1,7 @@
 .bmi-section {
-  background-color: aqua;
-  width: 50%;
-  border: grey 5px dotted;
-  border-radius: 10px;
+  background-color: #e34a40;
+  width: 70%;
+  border-radius: 20px;
   -webkit-box-shadow: 23.5px 14.5px 32px -22px #494949;
   -moz-box-shadow: 23.5px 14.5px 32px -22px #494949;
   box-shadow: 23.5px 14.5px 32px -22px #494949;
@@ -27,6 +26,8 @@
 .result-section {
   margin-top: 10%;
   background-color: aliceblue;
+  height: 50px;
+  padding-top: 10px;
 }
 .bmi-result {
   margin-left: 15%;

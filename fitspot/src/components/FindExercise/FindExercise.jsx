@@ -19,6 +19,8 @@ const FindExercise = () => {
     event.preventDefault();
     const getUser = async () => {
       try {
+        console.log(myReps);
+        console.log(pickedExercsie);
         let response = await axios.post(
           "http://127.0.0.1:8000/api/workouts/addworkout/",
           {
@@ -80,9 +82,9 @@ const FindExercise = () => {
   console.log(pickedExercsie);
   return (
     <section className="find-exercise">
-      <h2>Find exercise</h2>
-      <form onSubmit={SearchBody}>
-        <label>Search Body Parts</label>
+      <h2 className="section_title">Find exercise</h2>
+      <form onSubmit={SearchBody} className="bodypart-form">
+        <label className="section_title">Search Body Parts</label>
         <div>
           <select
             className="bpbox"
@@ -102,7 +104,7 @@ const FindExercise = () => {
             <option>waist</option>
           </select>
         </div>
-        <label>Search by Equipment</label>
+        <label className="section_title">Search by Equipment</label>
         <div>
           <select
             className="bpbox"
@@ -126,7 +128,7 @@ const FindExercise = () => {
             <option>olympic barbell</option>
             <option>resistance band</option>
             <option>roller</option>
-            <option>rope"</option>
+            <option>rope</option>
             <option>skierg machine</option>
             <option>sled machine</option>
             <option>smith machine</option>
@@ -143,24 +145,24 @@ const FindExercise = () => {
         <button>Submit</button>
       </form>
       {/*  */}
-      {equipmentSearch != undefined && (
-        <form className="display-result">
-          <label>Workouts</label>
+      {equipmentSearch.length > 0 && (
+        <form className="display-result" onSubmit={addWorkout}>
+          <label className="section_title">
+            Workouts{" "}
+            <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/30/000000/external-gym-fitness-and-healthy-living-flaticons-lineal-color-flat-icons-3.png" />
+          </label>
           <select
             value={pickedExercsie}
             onChange={(event) => setPickedExercise(event.target.value)}
           >
+            <option></option>
             {equipmentSearch.map((el) => (
               <option value={el.name}>{el.name}</option>
             ))}
           </select>
-        </form>
-      )}
-      {/* reps */}
-      {pickedExercsie != [] && (
-        <form onSubmit={addWorkout} className="reps-section">
           <label>Reps</label>
           <input
+            placeholder="1"
             onChange={(event) => setMyReps(event.target.value)}
             type="number"
           />

@@ -31,7 +31,7 @@
 
   top: 0;
   background: rgb(255, 255, 255);
-  height: 1980px;
+  height: 2080px;
   width: 100%;
   background-image: linear-gradient(
       30deg,
@@ -97,7 +97,7 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  height: auto;
+  height: 100%;
 }
 
 .page-img {
@@ -105,4 +105,8 @@
   position: absolute;
   border: none;
   border-radius: 0;
+}
+
+.components {
+  display: flex;
 }

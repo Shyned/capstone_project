@@ -155,3 +155,13 @@
 .whole-weather-page {
   padding-bottom: 20px;
 }
+
+.title-card {
+  font-family: "Tiro Tamil", serif;
+  font-family: "Ultra", serif;
+  color: #f09b08;
+  font-size: 60px;
+  padding-left: 10%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}

@@ -48,42 +48,45 @@ const WeightEntry = (props) => {
   }
 
   return (
-    <form id="form" onSubmit={handlesubmit}>
-      <h3>Enter weight</h3>
+    <form id="enter-form" onSubmit={handlesubmit}>
       <div className="WT-label">
-        <label>Weight</label>
-        <input
-          type="number"
-          className="input-search"
-          value={weight}
-          placeholder="Enter Weight (lbs)"
-          onChange={(event) => setweight(event.target.value)}
-        />
-        <label>Weight Goal</label>
-        <input
-          type="number"
-          className="input-search"
-          value={weigthGoal}
-          placeholder="Enter Weight Goal (lbs) "
-          onChange={(event) => setWeightGoal(event.target.value)}
-        />
-        <label>Birthday</label>
-        <input
-          type="date"
-          className="input-search"
-          value={birthday}
-          placeholder="yyyy-mm-dd"
-          onChange={(event) => setBirthday(event.target.value)}
-        />
-        <label>Height</label>
-        <input
-          type="number"
-          className="input-search"
-          value={height}
-          placeholder="Enter Height (inches)"
-          onChange={(event) => setHeight(event.target.value)}
-        />
-        <button className="search-button" type="submit">
+        <div>
+          <input
+            type="number"
+            className="input-search"
+            value={weight}
+            placeholder="Enter Weight (lbs)"
+            onChange={(event) => setweight(event.target.value)}
+          />
+        </div>
+        <div className="weight-input">
+          <input
+            type="number"
+            className="input-search"
+            value={weigthGoal}
+            placeholder="Enter Weight Goal (lbs) "
+            onChange={(event) => setWeightGoal(event.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            type="date"
+            className="input-search"
+            value={birthday}
+            placeholder="yyyy-mm-dd"
+            onChange={(event) => setBirthday(event.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            type="number"
+            className="input-search"
+            value={height}
+            placeholder="Enter Height (inches)"
+            onChange={(event) => setHeight(event.target.value)}
+          />
+        </div>
+        <button className="add-button" type="submit">
           Submit
         </button>
       </div>

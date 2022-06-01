@@ -7,9 +7,11 @@
   background-image: radial-gradient(#3f5e9a 2px, transparent 2px);
   background-size: 38px 38px;
   background-color: #fff6ef;
-  max-width: 100%;
+  max-width: 1764px;
+
   height: 100%;
   top: 0;
+  right: 0;
 
   z-index: 200;
 }

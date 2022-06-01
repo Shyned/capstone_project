@@ -5,6 +5,7 @@ import axios from "axios";
 import UserWeather from "../../components/UserWeather/Userweather";
 import "./Weather.css";
 import rain from "../../videos/rain.mp4";
+
 // import Wea
 
 const Weather = () => {

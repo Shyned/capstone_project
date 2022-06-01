@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./HomePage.css";
 import homebg from "../../videos/homebg.mp4";
+import Birthday_check from "../../components/birthday_check/birthday_check";
 
 const HomePage = () => {
   const [user, token] = useAuth();
@@ -32,7 +33,7 @@ const HomePage = () => {
         console.error(error);
       });
   }, [user]);
-  console.log(quote);
+
   return (
     <section className="home-page">
       <h1 className="fitspot">
@@ -47,8 +48,10 @@ const HomePage = () => {
       </video>
 
       <div className="inspire-area">
+        {" "}
         <h2 className="quote">{quote}</h2>
       </div>
+      <Birthday_check />
     </section>
   );
 };

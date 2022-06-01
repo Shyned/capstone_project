@@ -134,7 +134,7 @@ const UserWeather = (props) => {
         <div className="travel-page">
           <h2 className="weather-report">
             {" "}
-            Weather Report{" "}
+            Traveler's Weather Report{" "}
             <img
               className="weather-img"
               src="https://img.icons8.com/external-smashingstocks-isometric-smashing-stocks/55/000000/external-forecast-weather-smashingstocks-isometric-smashing-stocks.png"

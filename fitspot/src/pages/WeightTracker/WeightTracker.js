@@ -34,6 +34,10 @@ const WeightTracker = () => {
   console.log(customerInfo);
   return (
     <section className="weighttracker-page">
+      <img
+        className="bg-shape"
+        src="https://img.icons8.com/color/6000/undefined/3ds-max.png"
+      />
       <div className="title">
         <h2 className="wt-banner">
           {user.first_name}'s Weight Tracker
@@ -44,20 +48,14 @@ const WeightTracker = () => {
         </h2>
       </div>
       <div className="body-wt">
-        <div className="topcard-section">
-          {customerInfo.length > 0 && <CalculateBmi weight={customerInfo} />}
+        <div className="flex-items">
           {customerInfo.length > 0 && <WeightJourney weight={customerInfo} />}
+          <div className="right-section">
+            {customerInfo.length > 0 && <WeightEntry user={customerInfo} />}
+            {customerInfo.length > 0 && <CalculateBmi weight={customerInfo} />}
+          </div>
         </div>
-        {customerInfo.length > 0 && <WeightEntry user={customerInfo} />}
       </div>
-      <img
-        className="apple-img"
-        src="https://img.icons8.com/plasticine/150/000000/healthy-eating.png"
-      />
-      <img
-        className="hotpepper-img"
-        src="https://img.icons8.com/plasticine/200/000000/chili-pepper.png"
-      />
     </section>
   );
 };

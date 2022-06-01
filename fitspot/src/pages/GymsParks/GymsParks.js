@@ -4,29 +4,30 @@ import useAuth from "../../hooks/useAuth";
 import "./GymsParks.css";
 import axios from "axios";
 import FindGymsParks from "../../components/FindGymsParks/FindGymsParks";
+import UserMap from "../../components/UserMap/UserMap";
 
 const GymsParks = () => {
   const [user, token] = useAuth();
   const [customerInfo, setCustomerInfo] = useState([]);
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     try {
-  //       let response = await axios.get(
-  //         "http://127.0.0.1:8000/api/parksgyms/allpgratings/planet/",
-  //         {
-  //           headers: {
-  //             Authorization: "Bearer " + token,
-  //           },
-  //         }
-  //       );
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        let response = await axios.get(
+          "http://127.0.0.1:8000/api/weather/location/",
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
 
-  //       setCustomerInfo(response.data);
-  //     } catch (error) {
-  //       console.log(error.response.data);
-  //     }
-  //   };
-  //   getUser();
-  // }, [token]);
+        setCustomerInfo(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    };
+    getUser();
+  }, [token]);
 
   // console.log(customerInfo);
   http: return (
@@ -41,13 +42,10 @@ const GymsParks = () => {
           <h2>Parks</h2>
         </div>
       </div>
-      <div className="gymsparks-body">
-        <FindGymsParks />
+      <div className=" components">
+        {customerInfo.length > 0 && <FindGymsParks myuser={customerInfo} />}
+        <UserMap />
       </div>
-      <img
-        className="page-img"
-        src="https://img.icons8.com/external-filled-outline-icons-maxicons/400/000000/external-circle-space-filled-outline-filled-outline-icons-maxicons.png"
-      />
     </section>
   );
 };

@@ -17,9 +17,9 @@ const Navbar = () => {
         Home
       </a>
 
-      <a className="li" href="http://localhost:3000/about">
+      {/* <a className="li" href="http://localhost:3000/about">
         About
-      </a>
+      </a> */}
 
       <a className="li" href="http://localhost:3000/exercise">
         My Exercise

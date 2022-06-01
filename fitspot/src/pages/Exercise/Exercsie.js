@@ -14,7 +14,6 @@ const Exercise = () => {
       <div className="exercise-title">
         <h2 className="animate__bounce">Exercise</h2>
       </div>
-
       <video autoPlay loop muted className="maskvid">
         <source
           className="weightvid"
@@ -22,6 +21,7 @@ const Exercise = () => {
           type="video/mp4"
         ></source>
       </video>
+
       <FindExercise />
       <SavedWorkOuts />
     </section>
