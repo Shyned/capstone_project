@@ -8,8 +8,14 @@ const FindGymsParks = (props) => {
   const [user, token] = useAuth();
   const [userLocaton, setUserLocaton] = useState([]);
   const [localPlaces, setLocalPlaces] = useState([]);
-  const number = props.myuser.length - 1;
+  const [mainPlace, setMainPlace] = useState([]);
 
+  const number = props.myuser.length - 1;
+  //
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   // get coordinates
 
   useEffect(() => {
@@ -33,8 +39,7 @@ const FindGymsParks = (props) => {
       .catch(function (error) {
         console.error(error);
       });
-  }, [token]);
-
+  }, []);
   //
   // google maps
 
@@ -51,12 +56,12 @@ const FindGymsParks = (props) => {
           "X-RapidAPI-Key":
             "f635c5492emshb2e6721adc62d5fp1c5272jsn1187fe17f294",
         },
-        data: `{"limit":5,"language":"en","region":"us","queries":["park near ${userLocaton[0].ZipCode}","gym near ${userLocaton[0].ZipCode}"],"coordinates":"37.381315,-122.046148"}`,
+        data: `{"limit":5,"language":"en","region":"us","queries":["park near ${userLocaton[0].ZipCode}","gym near ${userLocaton[0].ZipCode}"],"coordinates":"37.381315,-122.046148","photos_limit": 1}`,
       };
       axios
         .request(options)
         .then(function (response) {
-          console.log();
+          console.log(response.data.response.places);
           setLocalPlaces(response.data.response.places);
         })
         .catch(function (error) {
@@ -64,18 +69,18 @@ const FindGymsParks = (props) => {
         });
     }
   }, [userLocaton]);
-
+  console.log(localPlaces.length);
   // card - cardimg - cardbody - cardbody - card title - card text- cardfooter
   return (
     <section className="caro-gp">
-      {localPlaces != undefined &&
+      {/* {localPlaces.length > 0 &&
         localPlaces.map((el) => (
-          <Card className="pg-card" bg="ligth">
+          <Card className="pg-card" bg="light">
             <Card.Img
               variant="top"
               src={el.photos_sample[0].large_photo_url}
               alt="picture of gym or park"
-              className="parkimg"
+              className="park"
             />
             <Card.Body>
               <Card.Title>{el.name}</Card.Title>
@@ -83,15 +88,18 @@ const FindGymsParks = (props) => {
             </Card.Body>{" "}
             <Card.Footer>
               <small className="text-muted">
-                <button className="pg-button" onClick={null}>
+                <button
+                  className="pg-button"
+                  onClick={() => setMainPlace(el.full_address)}
+                >
                   Select
                 </button>
               </small>
             </Card.Footer>
           </Card>
-        ))}
+        ))} */}
     </section>
   );
 };
-
+//
 export default FindGymsParks;

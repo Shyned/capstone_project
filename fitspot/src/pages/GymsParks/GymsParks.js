@@ -4,9 +4,8 @@ import useAuth from "../../hooks/useAuth";
 import "./GymsParks.css";
 import axios from "axios";
 import FindGymsParks from "../../components/FindGymsParks/FindGymsParks";
-import UserMap from "../../components/UserMap/UserMap";
-import Carousel from "react-bootstrap/Carousel";
 import smoke from "../../videos/smoke.mp4";
+import SelectedPlace from "../../components/SelectedPlace/SelectedPlace";
 
 const GymsParks = () => {
   const [user, token] = useAuth();
@@ -30,14 +29,17 @@ const GymsParks = () => {
     };
     getUser();
   }, [token]);
-
+  console.log(customerInfo);
   // console.log(customerInfo);
   http: return (
     <section className="gyms-parks-page">
       <video autoPlay loop muted className="weight-bg-video">
         <source src={smoke} type="video/mp4" />
       </video>
-      {customerInfo.length > 0 && <FindGymsParks myuser={customerInfo} />}
+      <div className="gp-flex">
+        {<SelectedPlace />}
+        {customerInfo.length > 0 && <FindGymsParks myuser={customerInfo} />}
+      </div>
     </section>
   );
 };
