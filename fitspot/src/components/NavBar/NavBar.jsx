@@ -12,8 +12,15 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="navbar navbar-light">
-      <a className="li" href="http://localhost:3000/">
+    <nav className="navbar navbar-expand-lg navbar-light bg-dark">
+      <h3 className="nav-title">
+        <img
+          className="nav-logo"
+          src="https://img.icons8.com/external-flaticons-flat-flat-icons/40/000000/external-fitness-quarantine-flaticons-flat-flat-icons.png"
+        />{" "}
+        FitSpot
+      </h3>
+      <a className="nav-link nav-a" href="http://localhost:3000/">
         Home
       </a>
 
@@ -21,28 +28,28 @@ const Navbar = () => {
         About
       </a> */}
 
-      <a className="li" href="http://localhost:3000/exercise">
+      <a className="nav-link nav-a" href="http://localhost:3000/exercise">
         My Exercise
       </a>
 
-      <a className="li" href="http://localhost:3000/weighttracker">
+      <a className="nav-link nav-a" href="http://localhost:3000/weighttracker">
         Weight Tracker
       </a>
 
-      <a className="li" href="http://localhost:3000/weather">
+      <a className="nav-link nav-a" href="http://localhost:3000/weather">
         Weather
       </a>
 
-      <a className="li" href="http://localhost:3000/gymsparks">
+      <a className="nav-link nav-a" href="http://localhost:3000/gymsparks">
         My Gyms/Parks
       </a>
 
       {user ? (
-        <button className="sign-btn" onClick={logoutUser}>
+        <button type="button" className="btn btn-warning" onClick={logoutUser}>
           Logout
         </button>
       ) : (
-        <button className="sign-btn" onClick={() => navigate("/login")}>
+        <button className="btn btn-warning" onClick={() => navigate("/login")}>
           Login
         </button>
       )}

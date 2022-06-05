@@ -5,6 +5,8 @@ import "./GymsParks.css";
 import axios from "axios";
 import FindGymsParks from "../../components/FindGymsParks/FindGymsParks";
 import UserMap from "../../components/UserMap/UserMap";
+import Carousel from "react-bootstrap/Carousel";
+import smoke from "../../videos/smoke.mp4";
 
 const GymsParks = () => {
   const [user, token] = useAuth();
@@ -32,20 +34,10 @@ const GymsParks = () => {
   // console.log(customerInfo);
   http: return (
     <section className="gyms-parks-page">
-      <div className="gptitle-section">
-        <div className="colorbox">
-          <h2>Gyms</h2>
-          <img
-            className="gp ampersand"
-            src="https://img.icons8.com/stickers/50/000000/ampersand.png"
-          />
-          <h2>Parks</h2>
-        </div>
-      </div>
-      <div className=" components">
-        {customerInfo.length > 0 && <FindGymsParks myuser={customerInfo} />}
-        <UserMap />
-      </div>
+      <video autoPlay loop muted className="weight-bg-video">
+        <source src={smoke} type="video/mp4" />
+      </video>
+      {customerInfo.length > 0 && <FindGymsParks myuser={customerInfo} />}
     </section>
   );
 };

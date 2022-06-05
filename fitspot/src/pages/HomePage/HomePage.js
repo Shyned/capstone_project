@@ -33,25 +33,18 @@ const HomePage = () => {
         console.error(error);
       });
   }, [user]);
-
+  console.log(user.first_name);
   return (
     <section className="home-page">
-      <h1 className="fitspot">
-        <img
-          className="svg-logo"
-          src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/000000/external-fitness-quarantine-flaticons-flat-flat-icons.png"
-        />
-        FitSpot
-      </h1>
       <video autoPlay loop muted className="bg-video">
         <source src={homebg} type="video/mp4" />
       </video>
-
+      <h1 className="welcome-user">Welcome {user.first_name}</h1>
       <div className="inspire-area">
         {" "}
         <h2 className="quote">{quote}</h2>
       </div>
-      <Birthday_check />
+      {/* <Birthday_check /> */}
     </section>
   );
 };

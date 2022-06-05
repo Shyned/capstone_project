@@ -1,32 +1,4 @@
-.gptitle-section {
-  background-color: #22223b;
-  gap: 10px;
-  font-family: "Tiro Tamil", serif;
-  font-family: "Ultra", serif;
-  width: 30%;
-  margin-left: 20%;
-  height: 9em;
-  padding-top: 2.5%;
-  border-radius: 30px;
-  padding-left: 4.5%;
-}
-
-.gp {
-  border-radius: 0%;
-  border: none;
-}
-
-.colorbox {
-  display: flex;
-  background-color: #4a4e69;
-  height: 4em;
-  width: 80%;
-  border-radius: 20px;
-  color: #f2e9e4;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-.gyms-parks-page {
+/* .gyms-parks-page {
   position: absolute;
 
   top: 0;
@@ -84,29 +56,4 @@
   background-size: 56px 98px;
   background-position: 0 0, 0 0, 28px 49px, 28px 49px, 0 0, 28px 49px;
   background-color: rgba(196, 242, 242, 0.76);
-}
-.gptitle-section {
-  position: absolute;
-  top: 5%;
-}
-
-.gymsparks-body {
-  background-color: aliceblue;
-  margin-top: 20%;
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  height: 100%;
-}
-
-.page-img {
-  left: 30%;
-  position: absolute;
-  border: none;
-  border-radius: 0;
-}
-
-.components {
-  display: flex;
-}
+} */

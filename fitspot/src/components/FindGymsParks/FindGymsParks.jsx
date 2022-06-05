@@ -2,17 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./FindGymsParks.css";
-import axios from "axios";
-import swim from "../../videos/swim.mp4";
-import { GoogleMap, useloadScript, Maker } from "@react-google-maps/api";
+import Card from "react-bootstrap/Card";
 
 const FindGymsParks = (props) => {
   const [user, token] = useAuth();
   const [userLocaton, setUserLocaton] = useState([]);
   const [localPlaces, setLocalPlaces] = useState([]);
   const number = props.myuser.length - 1;
-  const [highestRating, setHighestRating] = useState(0);
-  //
+
   // get coordinates
 
   useEffect(() => {
@@ -54,12 +51,12 @@ const FindGymsParks = (props) => {
           "X-RapidAPI-Key":
             "f635c5492emshb2e6721adc62d5fp1c5272jsn1187fe17f294",
         },
-        data: `{"limit":3,"language":"en","region":"us","queries":["park near ${userLocaton[0].ZipCode}","gym near ${userLocaton[0].ZipCode}"],"coordinates":"37.381315,-122.046148"}`,
+        data: `{"limit":5,"language":"en","region":"us","queries":["park near ${userLocaton[0].ZipCode}","gym near ${userLocaton[0].ZipCode}"],"coordinates":"37.381315,-122.046148"}`,
       };
       axios
         .request(options)
         .then(function (response) {
-          setHighestRating(response.data.response.places[0]);
+          console.log();
           setLocalPlaces(response.data.response.places);
         })
         .catch(function (error) {
@@ -68,42 +65,31 @@ const FindGymsParks = (props) => {
     }
   }, [userLocaton]);
 
+  // card - cardimg - cardbody - cardbody - card title - card text- cardfooter
   return (
-    <section className="findppg-com">
-      <h2 className="mpg-title-card">MY Local Parks and Gyms</h2>
-      {localPlaces.length > 0 && (
-        <div>
-          <div className=" main-card">
-            <h3>{highestRating.name}</h3>
-            <video autoPlay loop muted className="main-gym">
-              <source src={swim} type="video/mp4"></source>
-            </video>
-            <div className="info-section">
-              <a id="top-rating" href={highestRating.owner_link}>
-                {highestRating.full_address}
-              </a>
-              <p>Rating: {highestRating.rating}</p>
-            </div>
-          </div>
-          <div className="feature-section">
-            {localPlaces.map((el) => (
-              <div className="feature-card" key={el.id}>
-                <h3 className="feature-title-card">{el.name}</h3>
-                <img
-                  className="feature-icon"
-                  src="https://img.icons8.com/stickers/60/undefined/exercise.png"
-                />
-                <div className="info-sectionf">
-                  <a className="info-local" href={el.owner_link}>
-                    {el.full_address}
-                  </a>
-                  <p className="rating-feature">Rating: {el.rating}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+    <section className="caro-gp">
+      {localPlaces != undefined &&
+        localPlaces.map((el) => (
+          <Card className="pg-card" bg="ligth">
+            <Card.Img
+              variant="top"
+              src={el.photos_sample[0].large_photo_url}
+              alt="picture of gym or park"
+              className="parkimg"
+            />
+            <Card.Body>
+              <Card.Title>{el.name}</Card.Title>
+              <Card.Text>Rating {el.rating}</Card.Text>
+            </Card.Body>{" "}
+            <Card.Footer>
+              <small className="text-muted">
+                <button className="pg-button" onClick={null}>
+                  Select
+                </button>
+              </small>
+            </Card.Footer>
+          </Card>
+        ))}
     </section>
   );
 };

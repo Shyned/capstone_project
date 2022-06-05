@@ -1,29 +1,61 @@
-import React, { useState, useEffect } from "react";
 import "./WeigthJourney.css";
+import Table from "react-bootstrap/Table";
+import Accordion from "react-bootstrap/Accordion";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import useAuth from "../../hooks/useAuth";
+const WeightJourney = () => {
+  const [userWeight, setUserWeight] = useState([]);
+  const [user, token] = useAuth();
 
-const WeightJourney = (props) => {
-  console.log(props.weight);
-
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        let response = await axios.get(
+          "http://127.0.0.1:8000/api/weighttracker/userinfo/",
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
+        setUserWeight(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    };
+    getUser();
+  }, []);
+  console.log(userWeight);
   return (
-    <div className=" weights">
-      <div className="weight-header">
-        <h1 className="wj-title">Weight Journey</h1>
-      </div>
-      <div className="info-weights">
-        {props.weight != undefined &&
-          props.weight.map((el) => {
-            return (
-              <h5 className="pastweight" key={el.id}>
-                {el.current_weight} lbs{" "}
-                <img
-                  className="scale-icon"
-                  src="https://img.icons8.com/doodle/30/undefined/scale--v1.png"
-                />
-              </h5>
-            );
-          })}
-      </div>
-    </div>
+    <Accordion className="accord" defaultActiveKey="0" flush>
+      <Accordion.Item eventKey="1">
+        <Accordion.Header className="wj-title">
+          <h2 className="wj-title">Weight Entries</h2>
+        </Accordion.Header>
+        <Accordion.Body>
+          <Table striped bordered hover variant="dark" size="sm">
+            <thead>
+              <tr>
+                <th>Weight</th>
+                <th>Weight Goal</th>
+              </tr>
+            </thead>
+            <tbody className="row-body">
+              {userWeight.length > 0 &&
+                userWeight.map((el) => {
+                  return (
+                    <tr>
+                      <td>{el.current_weight} </td>
+                      <td>{el.weight_goal}</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </Table>
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
   );
 };
 

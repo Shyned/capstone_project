@@ -1,107 +1,20 @@
-@-webkit-keyframes slideInDown {
-  from {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-    visibility: visible;
-  }
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-@keyframes slideInDown {
-  from {
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-    visibility: visible;
-  }
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
 .navbar {
-  gap: 2px;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  width: 30%;
-  right: -69%;
-  display: flex;
-  background-color: #f2e9e4;
-  border-radius: 10px;
-  top: 5rem;
-  padding: 10px;
-  box-shadow: 10px 10px 30px rgb(46, 46, 46);
-  z-index: 100;
-  -webkit-animation-name: slideInDown;
-  animation-name: slideInDown;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+  height: 5em;
+  z-index: 300;
 }
-a {
-  color: #9a8c98;
-  text-decoration: none;
-  margin-bottom: 2%;
-  text-decoration: none;
-  font-weight: 700;
+.nav-title {
+  color: gold;
+  font-weight: bolder;
+  font-size: 30px;
+  margin-right: 15em;
+  margin-left: 5em;
+  font-family: serif;
 }
-a:hover {
-  filter: brightness(4);
+.nav-logo {
+  border: none;
+  border-radius: 0;
 }
 
-a:visited {
-  text-decoration: none;
-}
-.li {
-  text-decoration: none;
-  color: #ea9628;
-  border-radius: 10px;
-}
-
-.sign-btn {
-  margin-top: 3%;
-  border: 2px solid gray;
-  border-radius: 5%;
-  background-color: #686892;
-  color: #f2e9e4;
-  width: 20%;
-  animation: bouncy 5s infinite linear;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  color: #ffffff;
-  background: #333333;
-  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-    #9afec2 0px 0px 20px, #9afec2 0px 0px 30px, #9afec2 0px 0px 40px,
-    #9afec2 0px 0px 50px, #9afec2 0px 0px 75px;
-  color: #ffffff;
-  background: #333333;
-}
-@keyframes bouncy {
-  0% {
-    top: 0em;
-  }
-  40% {
-    top: 0em;
-  }
-  43% {
-    top: -0.9em;
-  }
-  46% {
-    top: 0em;
-  }
-  48% {
-    top: -0.4em;
-  }
-  50% {
-    top: 0em;
-  }
-  100% {
-    top: 0em;
-  }
-}
-.sign-btn:hover {
-  filter: brightness(1.4);
+.nav-a {
+  color: gold;
 }

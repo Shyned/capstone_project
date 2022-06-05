@@ -1,13 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import smoke from "../../videos/smoke.mp4";
 // style
 import "./WeightTracker.css";
 import axios from "axios";
 import CalculateBmi from "../../components/calculate_bmi/calculate_bmi";
 import WeightJourney from "../../components/WeigthJourney/WeigthJourney";
 import WeightEntry from "../../components/WeightEntry/WeightEntry";
-
+import Weight_chart from "../../components/Weight_chart/weight_chart";
 // line chart
 const WeightTracker = () => {
   const [user, token] = useAuth();
@@ -32,29 +33,18 @@ const WeightTracker = () => {
     getUser();
   }, []);
   console.log(customerInfo);
+
   return (
     <section className="weighttracker-page">
-      <img
-        className="bg-shape"
-        src="https://img.icons8.com/color/6000/undefined/3ds-max.png"
-      />
-      <div className="title">
-        <h2 className="wt-banner">
-          {user.first_name}'s Weight Tracker
-          <img
-            className="wt-logo"
-            src="https://img.icons8.com/external-wanicon-lineal-color-wanicon/64/fa314a/external-weight-supermarket-wanicon-lineal-color-wanicon.png"
-          />
-        </h2>
-      </div>
-      <div className="body-wt">
-        <div className="flex-items">
-          {customerInfo.length > 0 && <WeightJourney weight={customerInfo} />}
-          <div className="right-section">
-            {customerInfo.length > 0 && <WeightEntry user={customerInfo} />}
-            {customerInfo.length > 0 && <CalculateBmi weight={customerInfo} />}
-          </div>
-        </div>
+      {" "}
+      <video autoPlay loop muted className="weight-bg-video">
+        <source src={smoke} type="video/mp4" />
+      </video>
+      <div className="display-grid">
+        {customerInfo.length > 0 && <Weight_chart weight={customerInfo} />}{" "}
+        {customerInfo.length > 0 && <CalculateBmi weight={customerInfo} />}
+        {customerInfo.length > 0 && <WeightJourney weight={customerInfo} />}
+        {customerInfo.length > 0 && <WeightEntry user={customerInfo} />}
       </div>
     </section>
   );

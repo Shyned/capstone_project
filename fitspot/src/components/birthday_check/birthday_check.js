@@ -7,6 +7,10 @@ export default function Birthday_check() {
     current.getMonth() + 1
   }/${current.getFullYear()}`;
 
+  const birth = new Date();
+  const birthdate = `${birth.getDate()}/${birth.getMonth() + 1}`;
+
+  console.log(birthdate);
   return (
     <div className="birthday_check">
       <h1>Current date is {date}</h1>
