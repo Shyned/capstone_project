@@ -6,6 +6,7 @@ import axios from "axios";
 import FindGymsParks from "../../components/FindGymsParks/FindGymsParks";
 import smoke from "../../videos/smoke.mp4";
 import SelectedPlace from "../../components/SelectedPlace/SelectedPlace";
+import Spinner from "react-bootstrap/Spinner";
 
 const GymsParks = () => {
   const [user, token] = useAuth();
@@ -36,6 +37,7 @@ const GymsParks = () => {
       <video autoPlay loop muted className="weight-bg-video">
         <source src={smoke} type="video/mp4" />
       </video>
+
       <div className="gp-flex">
         {<SelectedPlace />}
         {customerInfo.length > 0 && <FindGymsParks myuser={customerInfo} />}

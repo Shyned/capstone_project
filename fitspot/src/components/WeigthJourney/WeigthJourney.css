@@ -13,3 +13,33 @@
   margin-left: 8em;
   background-color: black;
 }
+
+.past-weight {
+  position: absolute;
+  left: 63%;
+  top: 60%;
+  border-top: 1px solid #96d1f8;
+  background: #d6d61c;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#fae717),
+    to(#d6d61c)
+  );
+  background: -moz-linear-gradient(top, gold, rgb(127, 127, 127));
+  padding: 5px 10px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+  text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+  color: white;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+}

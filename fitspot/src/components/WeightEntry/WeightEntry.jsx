@@ -12,7 +12,7 @@ const WeightEntry = (props) => {
   const [height, setHeight] = useState([]);
   const [birthday, setBirthday] = useState([]);
   const [postedweight, setPostedweight] = useState([]);
-  console.log(birthday);
+
   function handlesubmit(event) {
     event.preventDefault();
     let new_weight = {

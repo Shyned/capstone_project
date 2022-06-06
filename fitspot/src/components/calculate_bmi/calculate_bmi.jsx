@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./CalculateBmi.css";
+import Spinner from "react-bootstrap/Spinner";
 
 const CalculateBmi = (props) => {
   const [myBmi, setMyBmi] = useState([]);
@@ -32,11 +33,17 @@ const CalculateBmi = (props) => {
   //       console.error(error);
   //     });
   // }, []);
+  console.log(myBmi);
 
   return (
     <section className="bmi-section">
       <h3 className="bmi-name">BMI</h3>
-      {myBmi != undefined && (
+      {myBmi.length === 0 && (
+        <div className="bmiloader">
+          <Spinner animation="border" variant="warning" />
+        </div>
+      )}
+      {myBmi.length > 0 && (
         <h4 className="bmi-result">{Math.trunc(myBmi.bmi)}%</h4>
       )}
     </section>

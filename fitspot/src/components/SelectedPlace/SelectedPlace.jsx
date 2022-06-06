@@ -24,16 +24,20 @@ const SelectedPlace = () => {
           <Card.Text>Last updated 3 mins ago</Card.Text>
         </Card.ImgOverlay>
       </Card>
-      <form>
+
+      <div className="rate-comment">
         <Rating
-        //   onClick={handleRating}
-        //   ratingValue={rating} /* Available Props */
+          className="rate"
+          //   onClick={handleRating}
+          //   ratingValue={rating} /* Available Props */
         />
-        <textarea placeholder="Comment" className="comment-area"></textarea>
-        <button type="submit" className="comment-button">
-          Submit
-        </button>
-      </form>
+        <form>
+          <textarea placeholder="Comment" className="comment-area"></textarea>
+          <button type="submit" className="comment-button">
+            Submit
+          </button>
+        </form>
+      </div>
     </section>
   );
 };
