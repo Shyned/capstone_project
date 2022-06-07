@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState, createContext } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./FindGymsParks.css";
 import Card from "react-bootstrap/Card";
@@ -11,6 +11,7 @@ const FindGymsParks = (props) => {
   const [localPlaces, setLocalPlaces] = useState([]);
   const [mainPlace, setMainPlace] = useState([]);
   const number = props.myuser.length - 1;
+  props.setMainPlace(mainPlace);
   //
   const [show, setShow] = useState(false);
 
@@ -101,7 +102,7 @@ const FindGymsParks = (props) => {
               <small className="text-muted">
                 <button
                   className="pg-button"
-                  onClick={() => setMainPlace(el.full_address)}
+                  onClick={() => setMainPlace(el.google_id)}
                 >
                   Select
                 </button>

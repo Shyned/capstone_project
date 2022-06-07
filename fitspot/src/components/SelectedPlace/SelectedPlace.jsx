@@ -4,10 +4,10 @@ import Card from "react-bootstrap/Card";
 import "./SelectedPlace.css";
 import { Rating } from "react-simple-star-rating";
 
-const SelectedPlace = () => {
+const SelectedPlace = (props) => {
   const [main, setMain] = useState([]);
   const [rating, setRating] = useState(0); // initial rating value
-
+  console.log(props.mainPlace);
   //Post comment
   const handleRating = (rate) => {
     setRating(rate);

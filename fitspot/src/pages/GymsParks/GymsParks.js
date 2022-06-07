@@ -11,6 +11,9 @@ import { useContext } from "react/cjs/react.production.min";
 const GymsParks = () => {
   const [user, token] = useAuth();
   const [customerInfo, setCustomerInfo] = useState([]);
+  const [mainPlace, setMainPlace] = useState(
+    "0x8640cd4c9383f4eb:0x70caee2b4e1ce3d1"
+  );
 
   useEffect(() => {
     const getUser = async () => {
@@ -40,9 +43,11 @@ const GymsParks = () => {
       </video>
 
       <div className="gp-flex">
-        {<SelectedPlace />}
+        {<SelectedPlace mainPlace={mainPlace} />}
 
-        {customerInfo.length > 0 && <FindGymsParks myuser={customerInfo} />}
+        {customerInfo.length > 0 && (
+          <FindGymsParks myuser={customerInfo} setMainPlace={setMainPlace} />
+        )}
       </div>
     </section>
   );
