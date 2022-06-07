@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./FindExercise.css";
 import axios from "axios";
+import Spinner from "react-bootstrap/Spinner";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 const FindExercise = () => {
   const [bodyPart, setBodyPart] = useState([]);
@@ -80,9 +83,14 @@ const FindExercise = () => {
     setHasItem(false);
   }, [hasItem]);
   console.log(pickedExercsie);
+  // modal
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <section className="find-exercise">
-      <h2 className="section_title">Find exercise</h2>
+      <h2 className="section_title">Find A Exercises</h2>
       <form onSubmit={SearchBody} className="bodypart-form">
         <label className="section_title">Search Body Parts</label>
         <div>
@@ -142,33 +150,61 @@ const FindExercise = () => {
             <option>wheel roller</option>
           </select>
         </div>
-        <button>Submit</button>
+        <button
+          variant="primary"
+          size="lg"
+          className="search-ex"
+          onClick={handleShow}
+        >
+          Search
+        </button>
       </form>
-      {/*  */}
-      {equipmentSearch.length > 0 && (
-        <form className="display-result" onSubmit={addWorkout}>
-          <label className="section_title">
-            Workouts{" "}
-            <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/30/000000/external-gym-fitness-and-healthy-living-flaticons-lineal-color-flat-icons-3.png" />
-          </label>
-          <select
-            value={pickedExercsie}
-            onChange={(event) => setPickedExercise(event.target.value)}
-          >
-            <option></option>
-            {equipmentSearch.map((el) => (
-              <option value={el.name}>{el.name}</option>
-            ))}
-          </select>
-          <label>Reps</label>
-          <input
-            placeholder="1"
-            onChange={(event) => setMyReps(event.target.value)}
-            type="number"
-          />
-          <button>Submit</button>
-        </form>
-      )}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {" "}
+            <label className="section_title">
+              Workouts{" "}
+              <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/30/000000/external-gym-fitness-and-healthy-living-flaticons-lineal-color-flat-icons-3.png" />
+            </label>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {equipmentSearch.length === 0 && (
+            <div>
+              <Spinner animation="grow" variant="warning" />{" "}
+              <span className="loading">Nothing Found ...</span>
+            </div>
+          )}
+          {equipmentSearch.length > 0 && (
+            <form className="display-result" onSubmit={addWorkout}>
+              <label>Exercises</label>
+              <select
+                className="found-ex"
+                value={pickedExercsie}
+                onChange={(event) => setPickedExercise(event.target.value)}
+              >
+                <option></option>
+                {equipmentSearch.map((el) => (
+                  <option value={el.name}>{el.name}</option>
+                ))}
+              </select>
+              <label>Reps</label>
+              <input
+                placeholder="1"
+                onChange={(event) => setMyReps(event.target.value)}
+                type="number"
+              />
+              <Modal.Footer>
+                <button>Submit</button>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </form>
+          )}
+        </Modal.Body>
+      </Modal>
     </section>
   );
 };

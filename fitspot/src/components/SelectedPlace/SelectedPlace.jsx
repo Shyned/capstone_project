@@ -6,8 +6,14 @@ import { Rating } from "react-simple-star-rating";
 
 const SelectedPlace = () => {
   const [main, setMain] = useState([]);
-  //Post comment
+  const [rating, setRating] = useState(0); // initial rating value
 
+  //Post comment
+  const handleRating = (rate) => {
+    setRating(rate);
+    // Some logic
+  };
+  console.log(rating);
   http: return (
     <section className="mainPlace">
       <Card className="bg-dark text-white">
@@ -28,8 +34,8 @@ const SelectedPlace = () => {
       <div className="rate-comment">
         <Rating
           className="rate"
-          //   onClick={handleRating}
-          //   ratingValue={rating} /* Available Props */
+          onClick={handleRating}
+          ratingValue={rating} /* Available Props */
         />
         <form>
           <textarea placeholder="Comment" className="comment-area"></textarea>

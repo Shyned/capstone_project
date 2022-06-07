@@ -1,14 +1,16 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./HomePage.css";
 import homebg from "../../videos/homebg.mp4";
-import Birthday_check from "../../components/birthday_check/birthday_check";
+import { createContext } from "react/cjs/react.production.min";
 
 const HomePage = () => {
   const [user, token] = useAuth();
   const [quote, setQuote] = useState([]);
   const axios = require("axios");
+
+  const UserContext = createContext(null);
 
   useEffect(() => {
     const axios = require("axios");

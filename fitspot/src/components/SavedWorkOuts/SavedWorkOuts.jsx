@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./SavedWorkOuts.css";
 import axios from "axios";
+import Table from "react-bootstrap/Table";
+import Offcanvas from "react-bootstrap/Offcanvas";
 
 const SavedWorkOuts = (props) => {
   const [user, token] = useAuth();
@@ -27,22 +29,50 @@ const SavedWorkOuts = (props) => {
     WorkoutLog();
   }, [token]);
   console.log(workouts);
+
+  // offcanvas
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <section className="Workout-log">
-      <h2 className="workout-box">Workout Log</h2>
-      {workouts != undefined &&
-        workouts.map((el) => (
-          <div className="workouts">
-            <div className="items-work" key={el.id}>
-              <p className="workputs">Workout : {el.exercise_id}</p>
-              <p className="workputs">REPS : {el.reps}</p>
-            </div>
-            <img
-              className="checked-box"
-              src="https://img.icons8.com/cute-clipart/40/undefined/checked-checkbox.png"
-            />
-          </div>
-        ))}
+      <button variant="primary" onClick={handleShow} className="see-workout">
+        Workout Log
+      </button>
+      <Offcanvas show={show} onHide={handleClose} placement="bottom">
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Workout Log</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Table
+          size="sm"
+          striped
+          bordered
+          hover
+          variant="dark"
+          className="wotable"
+        >
+          {" "}
+          <Offcanvas.Body className="workouts-list">
+            <thead>
+              <tr>
+                <th>Workout</th>
+                <th>Reps</th>
+              </tr>
+            </thead>
+
+            {workouts != undefined &&
+              workouts.map((el) => (
+                <tbody>
+                  <tr>
+                    <td>{el.exercise_id}</td>
+                    <td>{el.reps}</td>
+                  </tr>
+                </tbody>
+              ))}
+          </Offcanvas.Body>
+        </Table>
+      </Offcanvas>
     </section>
   );
 };

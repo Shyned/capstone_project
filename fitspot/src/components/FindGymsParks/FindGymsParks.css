@@ -26,3 +26,7 @@
   padding: 3%;
   border-bottom: 2px rgb(57, 57, 57) solid;
 }
+
+.spinner-border {
+  margin-top: 70%;
+}

@@ -53,7 +53,7 @@ const WeightJourney = () => {
       </button>
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title></Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Accordion className="accord" defaultActiveKey="0" flush>

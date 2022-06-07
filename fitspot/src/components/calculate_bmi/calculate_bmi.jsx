@@ -40,7 +40,7 @@ const CalculateBmi = (props) => {
       <h3 className="bmi-name">BMI</h3>
       {myBmi.length === 0 && (
         <div className="bmiloader">
-          <Spinner animation="border" variant="warning" />
+          <Spinner className="spin" animation="border" variant="warning" />
         </div>
       )}
       {myBmi.length > 0 && (

@@ -28,5 +28,11 @@
 
 .bmiloader {
   margin-left: 45%;
-  margin-top: 30%;
+  margin-top: -20%;
+  width: auto;
+}
+
+.spin {
+  width: 800px;
+  height: 400px;
 }

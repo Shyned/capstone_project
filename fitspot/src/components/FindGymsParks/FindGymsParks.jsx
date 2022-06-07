@@ -1,15 +1,15 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 import useAuth from "../../hooks/useAuth";
 import "./FindGymsParks.css";
 import Card from "react-bootstrap/Card";
+import Spinner from "react-bootstrap/Spinner";
 
 const FindGymsParks = (props) => {
   const [user, token] = useAuth();
   const [userLocaton, setUserLocaton] = useState([]);
   const [localPlaces, setLocalPlaces] = useState([]);
   const [mainPlace, setMainPlace] = useState([]);
-
   const number = props.myuser.length - 1;
   //
   const [show, setShow] = useState(false);
@@ -73,12 +73,23 @@ const FindGymsParks = (props) => {
   // card - cardimg - cardbody - cardbody - card title - card text- cardfooter
   return (
     <section className="caro-gp">
-      {/* {localPlaces.length > 0 &&
+      {localPlaces.length === 0 && (
+        <Spinner
+          role="status"
+          animation="grow"
+          variant="warning"
+          class="spinner-border"
+          style={{ width: "20rem", height: "20rem" }}
+        />
+      )}
+      {localPlaces.length > 0 &&
         localPlaces.map((el) => (
           <Card className="pg-card" bg="light">
             <Card.Img
               variant="top"
-              src={el.photos_sample[0].large_photo_url}
+              src={
+                "https://www.anytimefitness.com/wp-content/uploads/2021/12/brand-refresh-homepage-why-af-1.jpg"
+              }
               alt="picture of gym or park"
               className="park"
             />
@@ -97,7 +108,7 @@ const FindGymsParks = (props) => {
               </small>
             </Card.Footer>
           </Card>
-        ))} */}
+        ))}
     </section>
   );
 };

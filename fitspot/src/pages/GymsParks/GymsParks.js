@@ -7,10 +7,11 @@ import FindGymsParks from "../../components/FindGymsParks/FindGymsParks";
 import smoke from "../../videos/smoke.mp4";
 import SelectedPlace from "../../components/SelectedPlace/SelectedPlace";
 import Spinner from "react-bootstrap/Spinner";
-
+import { useContext } from "react/cjs/react.production.min";
 const GymsParks = () => {
   const [user, token] = useAuth();
   const [customerInfo, setCustomerInfo] = useState([]);
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -40,6 +41,7 @@ const GymsParks = () => {
 
       <div className="gp-flex">
         {<SelectedPlace />}
+
         {customerInfo.length > 0 && <FindGymsParks myuser={customerInfo} />}
       </div>
     </section>
