@@ -62,7 +62,6 @@ const FindGymsParks = (props) => {
       axios
         .request(options)
         .then(function (response) {
-          console.log(response.data.response.places);
           setLocalPlaces(response.data.response.places);
         })
         .catch(function (error) {
@@ -70,7 +69,7 @@ const FindGymsParks = (props) => {
         });
     }
   }, [userLocaton]);
-  console.log(localPlaces.length);
+
   // card - cardimg - cardbody - cardbody - card title - card text- cardfooter
   return (
     <section className="caro-gp">
@@ -79,7 +78,7 @@ const FindGymsParks = (props) => {
           role="status"
           animation="grow"
           variant="warning"
-          class="spinner-border"
+          className="spinner-border"
           style={{ width: "20rem", height: "20rem" }}
         />
       )}

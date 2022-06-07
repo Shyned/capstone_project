@@ -7,14 +7,13 @@ import FindGymsParks from "../../components/FindGymsParks/FindGymsParks";
 import smoke from "../../videos/smoke.mp4";
 import SelectedPlace from "../../components/SelectedPlace/SelectedPlace";
 import Spinner from "react-bootstrap/Spinner";
-import { useContext } from "react/cjs/react.production.min";
 const GymsParks = () => {
   const [user, token] = useAuth();
-  const [customerInfo, setCustomerInfo] = useState([]);
+  const [customerInfo, setCustomerInfo] = useState();
   const [mainPlace, setMainPlace] = useState(
-    "0x8640cd4c9383f4eb:0x70caee2b4e1ce3d1"
+    "0x8640cc204f3ab13f:0x58775d89d045f745"
   );
-
+  const [hasUser, setHasUser] = useState(false);
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -28,24 +27,25 @@ const GymsParks = () => {
         );
 
         setCustomerInfo(response.data);
+        setHasUser(true);
       } catch (error) {
         console.log(error.response.data);
       }
     };
     getUser();
-  }, [token]);
+  }, [user]);
   console.log(customerInfo);
   // console.log(customerInfo);
-  http: return (
+  return (
     <section className="gyms-parks-page">
       <video autoPlay loop muted className="weight-bg-video">
         <source src={smoke} type="video/mp4" />
       </video>
 
       <div className="gp-flex">
-        {<SelectedPlace mainPlace={mainPlace} />}
+        {hasUser === true && <SelectedPlace mainPlace={mainPlace} />}
 
-        {customerInfo.length > 0 && (
+        {hasUser === true && (
           <FindGymsParks myuser={customerInfo} setMainPlace={setMainPlace} />
         )}
       </div>

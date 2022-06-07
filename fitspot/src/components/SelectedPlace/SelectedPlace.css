@@ -52,3 +52,9 @@
 .rate {
   margin-top: 5%;
 }
+
+.spinner-border-lg {
+  position: absolute;
+  top: -80%;
+  left: 70%;
+}
