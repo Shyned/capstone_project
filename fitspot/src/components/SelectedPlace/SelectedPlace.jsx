@@ -4,15 +4,48 @@ import Card from "react-bootstrap/Card";
 import "./SelectedPlace.css";
 import { Rating } from "react-simple-star-rating";
 import Spinner from "react-bootstrap/Spinner";
+import Modal from "react-bootstrap/Modal";
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
 
 const SelectedPlace = (props) => {
   const [mylocal, setMyLocal] = useState(props.mainPlace);
   const [rating, setRating] = useState(0); // initial rating value
   const [mainData, setMainData] = useState([]);
-
+  const [comments, setComments] = useState([]);
+  // Change to true when reqest returns obect
   const [hasMain, setHasMain] = useState(false);
+  const [user, token] = useAuth();
+  // bootstrap modal
+  const [show, setShow] = useState(false);
+  const values = [true];
+  const [fullscreen, setFullscreen] = useState(true);
+  function handleShow(breakpoint) {
+    setFullscreen(breakpoint);
+    setShow(true);
+  }
+  // {mylocal} planet in slot just testing
+  useEffect(() => {
+    const getComments = async () => {
+      try {
+        let response = await axios.get(
+          `http://127.0.0.1:8000/api/parksgyms/allpgratings/planet/`,
+          {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          }
+        );
 
-  console.log(typeof mylocal);
+        setComments(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+      }
+    };
+    getComments();
+  }, [mylocal]);
+  console.log(comments);
+
   // google api
   useEffect(() => {
     {
@@ -46,7 +79,6 @@ const SelectedPlace = (props) => {
   const handleRating = (rate) => {
     setRating(rate);
   };
-  console.log(mainData);
   http: return (
     <section className="mainPlace">
       {hasMain == false && (
@@ -56,7 +88,34 @@ const SelectedPlace = (props) => {
           className="grow-border-lg"
           style={{ width: "20rem", height: "20rem" }}
         />
-      )}
+      )}{" "}
+      <button
+        key={true}
+        className="see-comment"
+        onClick={() => handleShow(values)}
+      >
+        See comments
+      </button>
+      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Comments</Modal.Title>
+        </Modal.Header>
+        {comments.length === 0 && <Modal.Body>No Comments Found</Modal.Body>}
+
+        {comments.length > 0 && (
+          <Modal.Body className="scroll-modal-bd">
+            {comments.map((el) => {
+              return (
+                <div className="comment-box">
+                  <h2>{el.user.user_name}</h2>
+                  <h4>{el.comment}</h4>
+                  <h5>{el.rating}</h5>
+                </div>
+              );
+            })}
+          </Modal.Body>
+        )}
+      </Modal>
       {hasMain == true && (
         <div>
           <Card className="bg-dark text-white">
@@ -76,12 +135,13 @@ const SelectedPlace = (props) => {
           </Card>
 
           <div className="rate-comment">
-            <Rating
-              className="rate"
-              onClick={handleRating}
-              ratingValue={rating} /* Available Props */
-            />
             <form>
+              {" "}
+              <Rating
+                className="rate"
+                onClick={handleRating}
+                ratingValue={rating} /* Available Props */
+              />
               <textarea
                 placeholder="Comment"
                 className="comment-area"

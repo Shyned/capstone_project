@@ -38,7 +38,6 @@ const FindExercise = () => {
           }
         );
         console.log(response.data);
-        alert("Entry Added");
       } catch (error) {
         console.log(error.response.data);
       }

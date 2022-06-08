@@ -58,3 +58,11 @@
   top: -80%;
   left: 70%;
 }
+.comment-box {
+  border-bottom: 2px solid rgb(113, 113, 113);
+  background-color: whitesmoke;
+}
+.scroll-modal-bd {
+  overflow: scroll;
+  background-color: #505050;
+}
