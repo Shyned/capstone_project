@@ -11,12 +11,13 @@ import Spinner from "react-bootstrap/Spinner";
 const GymsParks = () => {
   const [user, token] = useAuth();
   const [customerInfo, setCustomerInfo] = useState();
-  const [hasobject, setHasobject] = useState(false);
+
   const [mainPlace, setMainPlace] = useState(
     "0x8640cc204f3ab13f:0x58775d89d045f745"
   );
   const [placeInfo, setPlaceInfo] = useState([]);
   const [hasplace, setHasPlace] = useState(false);
+  const [hasobject, setHasobject] = useState(false);
   // google api
   useEffect(() => {
     {
@@ -66,7 +67,7 @@ const GymsParks = () => {
     };
     getUser();
   }, [user]);
-  console.log(placeInfo);
+  console.log(customerInfo);
   return (
     <section className="gyms-parks-page">
       <video autoPlay loop muted className="weight-bg-video">
@@ -74,7 +75,7 @@ const GymsParks = () => {
       </video>
 
       <div className="gp-flex">
-        {hasplace === true && <SelectedPlace selected={placeInfo} />}
+        {placeInfo.length > 0 && <SelectedPlace selected={placeInfo} />}
 
         {hasobject === true && (
           <FindGymsParks myuser={customerInfo} setMainPlace={setMainPlace} />

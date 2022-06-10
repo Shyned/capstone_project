@@ -11,10 +11,8 @@ import axios from "axios";
 const SelectedPlace = (props) => {
   var mylocal = props.selected;
   const [rating, setRating] = useState(0); // initial rating value
-  const [mainData, setMainData] = useState([]);
   const [comments, setComments] = useState([]);
   // Change to true when reqest returns obect
-  const [hasMain, setHasMain] = useState(false);
   const [user, token] = useAuth();
   // bootstrap modal
   const [show, setShow] = useState(false);
@@ -27,7 +25,8 @@ const SelectedPlace = (props) => {
     setFullscreen(breakpoint);
     setShow(true);
   }
-  console.log(mylocal);
+  console.log(mylocal[0].google_id);
+
   //handle post request
   async function postrating(event) {
     event.preventDefault();
@@ -36,7 +35,7 @@ const SelectedPlace = (props) => {
         "http://127.0.0.1:8000/api/parksgyms/rateplace/",
         {
           user: user.first_name,
-          gym_park_id: mylocal,
+          gym_park_id: mylocal[0].google_id,
           rating: rating,
           comment: userComment,
         },
@@ -52,12 +51,12 @@ const SelectedPlace = (props) => {
       console.log(error.response.data);
     }
   }
-  // {mylocal} planet in slot just testing
+  //get comments
   useEffect(() => {
     const getComments = async () => {
       try {
         let response = await axios.get(
-          `http://127.0.0.1:8000/api/parksgyms/allpgratings/${mylocal}/`,
+          `http://127.0.0.1:8000/api/parksgyms/allpgratings/${mylocal[0].google_id}/`,
           {
             headers: {
               Authorization: "Bearer " + token,
@@ -71,25 +70,15 @@ const SelectedPlace = (props) => {
       }
     };
     getComments();
-  }, [mylocal]);
+  }, [show]);
 
-  // google api
-
-  //Post comment
+  //star rating
   const handleRating = (rate) => {
     setRating(rate);
   };
-
+  console.log(comments);
   http: return (
     <section className="mainPlace">
-      {hasMain == false && (
-        <Spinner
-          animation="grow"
-          variant="warning"
-          className="grow-border-lg"
-          style={{ width: "20rem", height: "20rem" }}
-        />
-      )}{" "}
       <button
         key={true}
         className="see-comment"
@@ -117,17 +106,17 @@ const SelectedPlace = (props) => {
           </Modal.Body>
         )}
       </Modal>
-      {hasMain == true && (
+      {true === true && (
         <div>
           <Card className="bg-dark text-white">
             <Card.Img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?cs=srgb&dl=pexels-william-choquette-1954524.jpg&fm=jpg" />
             <Card.ImgOverlay>
               <Card.Title>
-                <h3 className="card-title">{mainData[0].name}</h3>
+                <h3 className="card-title">{mylocal[0].name}</h3>
               </Card.Title>
               <Card.Text className="card-body-main">
-                <a target="_blank" href={mainData[0].place_link}>
-                  {mainData[0].full_address}
+                <a target="_blank" href={mylocal[0].place_link}>
+                  {mylocal[0].full_address}
                 </a>
               </Card.Text>
             </Card.ImgOverlay>
