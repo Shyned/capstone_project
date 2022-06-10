@@ -37,41 +37,49 @@ const SavedWorkOuts = (props) => {
 
   return (
     <section className="Workout-log">
-      <button variant="primary" onClick={handleShow} className="see-workout">
-        Workout Log
-      </button>
+      <div className="hold-btn">
+        <button
+          type="button"
+          className="btn btn-outline-primary work-log"
+          onClick={handleShow}
+        >
+          Workout Log
+        </button>
+      </div>
       <Offcanvas show={show} onHide={handleClose} placement="bottom">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Workout Log</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Table
-          size="sm"
-          striped
-          bordered
-          hover
-          variant="dark"
-          className="wotable"
-        >
+        </Offcanvas.Header>{" "}
+        <Offcanvas.Body>
           {" "}
-          <Offcanvas.Body className="workouts-list">
-            <thead>
-              <tr>
-                <th>Workout</th>
-                <th>Reps</th>
-              </tr>
-            </thead>
+          <div className="table-responsive">
+            <Table
+              striped
+              bordered
+              hover
+              variant="dark"
+              responsive="xl"
+              className="table"
+            >
+              <thead>
+                <tr>
+                  <th>Workout</th>
+                  <th>Reps</th>
+                </tr>
+              </thead>
 
-            {workouts != undefined &&
-              workouts.map((el) => (
-                <tbody>
-                  <tr>
-                    <td>{el.exercise_id}</td>
-                    <td>{el.reps}</td>
-                  </tr>
-                </tbody>
-              ))}
-          </Offcanvas.Body>
-        </Table>
+              {workouts != undefined &&
+                workouts.map((el) => (
+                  <tbody>
+                    <tr>
+                      <td>{el.exercise_id}</td>
+                      <td>{el.reps}</td>
+                    </tr>
+                  </tbody>
+                ))}
+            </Table>
+          </div>
+        </Offcanvas.Body>
       </Offcanvas>
     </section>
   );
