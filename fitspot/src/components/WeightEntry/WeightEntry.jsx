@@ -22,6 +22,8 @@ const WeightEntry = (props) => {
       weight_goal: weigthGoal,
       height: height,
     };
+
+    // add weight entry
     const getUser = async () => {
       try {
         let response = await axios.post(

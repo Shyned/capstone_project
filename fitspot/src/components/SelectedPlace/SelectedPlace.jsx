@@ -9,7 +9,7 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 
 const SelectedPlace = (props) => {
-  const [mylocal, setMyLocal] = useState(props.mainPlace);
+  var mylocal = props.selected;
   const [rating, setRating] = useState(0); // initial rating value
   const [mainData, setMainData] = useState([]);
   const [comments, setComments] = useState([]);
@@ -20,16 +20,44 @@ const SelectedPlace = (props) => {
   const [show, setShow] = useState(false);
   const values = [true];
   const [fullscreen, setFullscreen] = useState(true);
+  //handle comment change
+  const [userComment, setUserComment] = useState([]);
+
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
     setShow(true);
+  }
+  console.log(mylocal);
+  //handle post request
+  async function postrating(event) {
+    event.preventDefault();
+    try {
+      let response = await axios.post(
+        "http://127.0.0.1:8000/api/parksgyms/rateplace/",
+        {
+          user: user.first_name,
+          gym_park_id: mylocal,
+          rating: rating,
+          comment: userComment,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      console.log(response.data);
+      alert("Entry Posted");
+    } catch (error) {
+      console.log(error.response.data);
+    }
   }
   // {mylocal} planet in slot just testing
   useEffect(() => {
     const getComments = async () => {
       try {
         let response = await axios.get(
-          `http://127.0.0.1:8000/api/parksgyms/allpgratings/planet/`,
+          `http://127.0.0.1:8000/api/parksgyms/allpgratings/${mylocal}/`,
           {
             headers: {
               Authorization: "Bearer " + token,
@@ -44,41 +72,14 @@ const SelectedPlace = (props) => {
     };
     getComments();
   }, [mylocal]);
-  console.log(comments);
 
   // google api
-  useEffect(() => {
-    {
-      const axios = require("axios");
-
-      const options = {
-        method: "POST",
-        url: "https://google-maps-search1.p.rapidapi.com/search",
-        headers: {
-          "content-type": "application/json",
-          "X-RapidAPI-Host": "google-maps-search1.p.rapidapi.com",
-          "X-RapidAPI-Key":
-            "f635c5492emshb2e6721adc62d5fp1c5272jsn1187fe17f294",
-        },
-        data: `{"limit":5,"language":"en","region":"us","queries":[" ${mylocal}"],"coordinates":"37.381315,-122.046148","photos_limit": 1}`,
-      };
-      axios
-        .request(options)
-        .then(function (response) {
-          console.log(response.data.response);
-          setMainData(response.data.response.places);
-          setHasMain(true);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    }
-  }, [mylocal]);
 
   //Post comment
   const handleRating = (rate) => {
     setRating(rate);
   };
+
   http: return (
     <section className="mainPlace">
       {hasMain == false && (
@@ -119,23 +120,21 @@ const SelectedPlace = (props) => {
       {hasMain == true && (
         <div>
           <Card className="bg-dark text-white">
-            <Card.Img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6IxTX-JPznpxMrXpnuzvkjXxDrD4B09UMkLPnCEMxPcINK9pFguK_IFt7I5ADyWMjlak&usqp=CAU"
-              alt="Card image"
-            />
+            <Card.Img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?cs=srgb&dl=pexels-william-choquette-1954524.jpg&fm=jpg" />
             <Card.ImgOverlay>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+              <Card.Title>
+                <h3 className="card-title">{mainData[0].name}</h3>
+              </Card.Title>
+              <Card.Text className="card-body-main">
+                <a target="_blank" href={mainData[0].place_link}>
+                  {mainData[0].full_address}
+                </a>
               </Card.Text>
-              <Card.Text>Last updated 3 mins ago</Card.Text>
             </Card.ImgOverlay>
           </Card>
 
           <div className="rate-comment">
-            <form>
+            <form onSubmit={postrating}>
               {" "}
               <Rating
                 className="rate"
@@ -145,6 +144,7 @@ const SelectedPlace = (props) => {
               <textarea
                 placeholder="Comment"
                 className="comment-area"
+                onChange={(event) => setUserComment(event.target.value)}
               ></textarea>
               <button type="submit" className="comment-button">
                 Submit
