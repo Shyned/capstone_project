@@ -53,37 +53,31 @@ const WeightJourney = () => {
       </button>
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title></Offcanvas.Title>
+          <Offcanvas.Title>
+            {" "}
+            <h2>Weight Journey</h2>
+          </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Accordion className="accord" defaultActiveKey="0" flush>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header className="wj-title">
-                <h2 className="wj-title">Weight Entries</h2>
-              </Accordion.Header>
-              <Accordion.Body>
-                <Table striped bordered hover variant="dark" size="sm">
-                  <thead>
-                    <tr>
-                      <th>Weight</th>
-                      <th>Weight Goal</th>
+          <Table striped bordered hover variant="dark" size="sm">
+            <thead>
+              <tr>
+                <th>Weight</th>
+                <th>Weight Goal</th>
+              </tr>
+            </thead>
+            <tbody className="row-body">
+              {userWeight != undefined &&
+                userWeight.map((el) => {
+                  return (
+                    <tr key={el.user_id}>
+                      <td>{el.current_weight} </td>
+                      <td>{el.weight_goal}</td>
                     </tr>
-                  </thead>
-                  <tbody className="row-body">
-                    {userWeight != undefined &&
-                      userWeight.map((el) => {
-                        return (
-                          <tr key={el.user_id}>
-                            <td>{el.current_weight} </td>
-                            <td>{el.weight_goal}</td>
-                          </tr>
-                        );
-                      })}
-                  </tbody>
-                </Table>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
+                  );
+                })}
+            </tbody>
+          </Table>
         </Offcanvas.Body>
       </Offcanvas>
     </section>
