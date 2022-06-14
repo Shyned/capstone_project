@@ -1,9 +1,9 @@
 .caro-gp {
   height: 50%;
   background-color: grey;
-  margin-left: 23%;
+  right: 20px;
   width: 20%;
-  margin-top: 0%;
+  position: absolute;
   height: 900px;
   overflow: auto;
 }

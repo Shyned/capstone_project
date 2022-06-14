@@ -20,7 +20,7 @@ const SelectedPlace = (props) => {
   const [fullscreen, setFullscreen] = useState(true);
   //handle comment change
   const [userComment, setUserComment] = useState([]);
-
+  console.log(mylocal);
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
     setShow(true);

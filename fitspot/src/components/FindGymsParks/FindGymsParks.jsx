@@ -94,8 +94,16 @@ const FindGymsParks = (props) => {
               className="park"
             />
             <Card.Body>
-              <Card.Title>{el.name}</Card.Title>
-              <Card.Text>Rating {el.rating}</Card.Text>
+              <Card.Title
+                className="place-title"
+                style={{
+                  "font-size": "15px",
+                  "padding-left": "0px",
+                }}
+              >
+                {el.name}
+              </Card.Title>
+              <Card.Text>{el.rating} (google rating)</Card.Text>
             </Card.Body>{" "}
             <Card.Footer>
               <small className="text-muted">

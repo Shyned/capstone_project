@@ -6,7 +6,7 @@
   color: gold;
   font-weight: bolder;
   font-size: 30px;
-  margin-right: 15em;
+  margin-right: 13em;
   margin-left: 5em;
   font-family: serif;
 }
@@ -17,4 +17,8 @@
 
 .nav-a {
   color: gold;
+}
+.change {
+  background-color: transparent;
+  border: none;
 }
