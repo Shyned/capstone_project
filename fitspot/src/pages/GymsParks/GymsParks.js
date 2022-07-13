@@ -66,7 +66,7 @@ const GymsParks = () => {
       }
     };
     getUser();
-  }, [user]);
+  });
   console.log(customerInfo);
   return (
     <section className="gyms-parks-page">

@@ -42,6 +42,7 @@ const Navbar = () => {
       );
       console.log(response.data);
       alert("Entry Posted");
+      window.reload(true);
     } catch (error) {
       console.log(error.response.data);
     }
